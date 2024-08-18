@@ -1,0 +1,13 @@
+Membuat symlink di windows
+
+Symlink adalah link simbolik, yang biasa digunakan di sistem operasi linux. Symlink adalah sebuah file atau folder khusus yang mengacu ke file atau folder lainnya. Sehingga kita dapat membuat sebuah file yang seolah-olah berada pada folder tertentu tetapi kenyataannya disimpan pada folder lainnya. Hal ini dapat memudahkan dalam pengarsipan.
+
+Sebagai contoh: kita biasa menyimpan dokumen pada drive C:. Cara ini tentu sedikit beresiko, apabila terjadi error dan ternyata kita harus melakukan install ulang windows, yang mengakibatkan dokumen pada drive C: akan hilang.
+
+Untuk mengatasi hal tersebut, maka kita dapat melakukan sebuah trik menggunakan symlink. Yaitu dengan membuat folder symlink di C: yang mengacu pada folder lain di drive D:.
+
+Untuk membuat symlink dapat digunakan perintah mklink. Buka command prompt menggunakan "run as administrator", kemudian perintah berikut :
+
+C:\mklink /D C:\TempatDokumen D:\FolderAsli
+symbolic link created for C:\TempatDokumen <<===>> D:\FolderAsli
+Sekarang kita telah memiliki folder TempatDokumen di C:, yang sebenarnya berada di D:\FolderAsli.

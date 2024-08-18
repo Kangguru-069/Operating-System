@@ -1,0 +1,112 @@
+Basic Utilities
+
+A. Printing Files
+Many versions of Unix include two powerful text formatters, nroff and troff.
+the directory /usr/lib/font.
+
+a. The pr Command (print command)
+   The pr command does minor formatting of files on the terminal screen or for a
+   printer. 
+   pr - convert text files for printing on the terminal screen
+   Rumus :
+    $ pr option(s) filename(s)
+    
+    $ man pr ==> untuk melihat perintah yang ingin dijalankan
+    
+    CONTOH :
+    buat sebuah file..
+    $ cat file
+    $ pr -3 -h "Nama-Nama" file
+    
+b. The lp and lpr Commands
+   lp or lpr - Print file to paper
+   
+c. The lpstat and lpq Commands
+   lpstat - print cups status information/show whats in printer queue:request IDs,
+            owners, file sizes when the jobs were sent to printing and the status
+            of the request
+   lpstat -o ==> to see output request
+   
+   lpq - show printer queue status
+
+d. The cancel and lpm commands
+   cancel - cancel jobs     ==> terminates a printing request from lp command
+   lprm - cancel print jobs ==> terminate all printing request from lpr commandq
+   
+   
+B. Sending Email
+   Install :
+   $ sudo apt install mailutils atau sudo apt-get install mailutils
+   Uninstall :
+   $ sudo apt remove mailutils atau sudo apt-get remove mailutils 
+   $ sudo apt-get remove --auto-remove mailutils (remove mailutils and dependent packages) 
+   $ sudo apt-get purge mailutils (remove mailutils, dependent packages and all configuration) 
+   $ sudo apt-get purge --auto-remove mailutils (removed everything regarding the package)
+   Options :
+   -s ---> Specifies subject on the command line.
+   -c ---> Sends carbon copies to the list of users. List should be a
+           commaseparated list of names.
+   -b ---> Sends blind carbon copies to list. List should be a commaseparated list
+           of names.
+   CONTOH :
+   $ mail -s "Test Message" test@email.com 
+   send a complete file using a redirect < operator
+   $ mail -s "Report 05/06/07" admin@yahoo.com < demo.txt
+   check incoming email at your Unix system
+   $ mail
+   
+   1. Using ‘sendmail’ Command 
+      - create a email
+        $ vi /test/mail.txt
+          Subject: Email Send
+          Hello Hello
+      - $ sendmail rahul@mail.com  < /test/mail.txt
+      
+   2. Using ‘mail’ Command
+      Options : -a for mailx(CentOS/Redhat 7/6 Fedora 22+ and CentOS/RHEL 8) and
+                -A for mailutils(Ubuntu/Debian/LinuxMint)
+      - $ mail -s "Test Subject" rahul@mail.com < /dev/device
+      - $ mail -a /opt/backup.sql -s "Backup File" rahul@mail.com < /dev/device
+      
+   3. Using ‘mutt’ Command
+      Mutt is basically used for reading emails from Linux terminal from local
+      user mailboxes, also useful to read emails from POP/IMAP servers. Mutt
+      command is little similar to mail command.
+      - $ mutt -s "Test Email" rahul@mail.com < /dev/device
+      - $ mutt  -s "Test Email" -a /opt/backup.sql user@example.com < /dev/device
+      
+   4. Using ‘ssmtp’ Command
+      sSMTP allows users to send emails from SMTP server from Linux command line.
+      - ssmtp admin@example.com
+        Subject: Test SSMTP Email
+        Test Send Email using SSMTP
+        via SMTP server.
+        
+        ^d(ctrl+d to send the email)
+   5. Using ‘telnet’ Command
+      All system administrators use telnet command to test remote port
+      connectivity test or login to the server remotely. 
+      we can send email using telnet also, which is the better way to troubleshoot
+      email sending problems.
+      - $ telnet localhost smtp
+          Trying 127.0.0.1...
+          Connected to localhost.localdomain (127.0.0.1).
+          Escape character is '^]'.
+          220 fbreveal.com ESMTP Sendmail 8.13.8/8.13.8; Tue, 22 Oct 2013 05:05:59 -0400
+          HELLO rahul.com
+          250 tecadmin.net Hello tecadmin.net [127.0.0.1], pleased to meet you
+          mail from: sender@test.net
+          250 2.1.0 sender@test.net... Sender ok
+          rcpt to: myemail@mail.com
+          250 2.1.5 myemail@mail.com... Recipient ok
+          data
+          354 Enter mail, end with "." on a line by itself
+          Hello
+          Test Send email use Telnet
+          
+          Thanks
+          .
+          250 2.0.0 r9M95xgc014513 Message accepted for delivery
+          quit
+          221 2.0.0 fbreveal.com closing connection
+          Connection closed by foreign host.

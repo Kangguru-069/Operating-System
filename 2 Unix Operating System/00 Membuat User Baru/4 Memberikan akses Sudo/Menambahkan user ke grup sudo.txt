@@ -1,0 +1,5 @@
+Menambahkan user ke grup sudo
+
+- usermod -aG sudo brenebon
+- su - brenebon (Uji Akses sudo)
+- sudo whoami ==> jika output root maka settingan berhasil 

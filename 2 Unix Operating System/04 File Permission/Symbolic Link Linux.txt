@@ -1,0 +1,81 @@
+A. Apa Itu Symbolic Link Linux?
+
+Tak hanya untuk membuat shortcut dan manajemen file pada sistem operasi, seperti Linux, Symbolic Link juga dapat digunakan dalam pembuatan berbagai lokasi primary user folder, misalnya Documents, Pictures, Downloads, dan lainnya!
+
+Cara kerja Symbolic Link seperti string yang membuat pathways untuk berbagai file, folder, dan direktori pada sistem komputer. Symbolic Link Linux akan membuat dan menyimpan berbagai file di tempat berbeda yang merujuk pada satu file. Dengan menyimpan semua dokumen yang spesifik ke dalam satu command, maka akan semakin efisien.
+
+Link tersebut disimpan pada mainframe. Jadi, walaupun file aslinya dihapus, Anda masih memiliki sebagian besar cadangannya. Symbolic link akan membuat invalid link pathways untuk menyimpan serpihan informasi sesuai kebutuhan pengguna.
+
+Karena fiturnya user-friendly, Microsoft bahkan mengikuti jejak Linux untuk membuat Symbolic Link. Symbolic link, juga dikenal sebagai Soft link atau Symlink, memang tidak begitu unik di Linux, tapi cara kerjanya seperti opsi Search pada Windows yang mencari file atau direktori tertentu di dalam disk dengan menjalankan berbagai command.
+
+
+
+B. Membuat Symbolic Link Linux untuk File
+
+Umumnya command ln dan opsi -s diperlukan untuk membuat Symbolic link. Metode ini merupakan cara yang paling mudah dan fleksibel bagi Anda untuk bereksperimen dengan bahasa pemrograman sebanyak mungkin. Tidak ada yang sulit dalam membuat Symbolic link Linux – Anda hanya perlu mengikuti satu langkah sederhana.
+
+ln -s [target file] [Symbolic filename]
+
+Command ln pada Linux menciptakan link antara source file dan direktori.
+   -s – merupakan command untukSymbolic link
+   [target file] – nama dari file yang sudah ada dan hendak Anda buatkan linknya
+   [Symbolic filename] – nama symbolic link.
+   
+   
+   
+   
+C. Membuat Symbolic Link Linux untuk Folder
+
+Membuat symbolic link untuk folder juga tidak sulit. Berikut command yang digunakan:
+
+ln [Specific file/directory] [symlink name] --> Hardlink
+ln -f [Specific file/directory] [symlink name] --> Mengganti Paksa file yang sudah ada (to force the operation (remove exiting symbolic link), use the -f)
+ln -s [Specific file/directory] [symlink name] --> Symlink/Softlink
+ln -sf [Specific file/directory] [symlink name] --> If the symbolic link already exist, you may get an error, to force the operation (remove exiting symbolic link), use the -f option
+ln -sfv [Specific file/directory] [symlink name] --> To enable verbose mode, add the -v (Verbose Mode adalah opsi yang tersedia di banyak sistem operasi komputer dan bahasa pemrograman yang
+                                                     memberikan detail tambahan tentang apa yang dilakukan komputer dan driver).
+ln -P [Specific file/directory] [symlink name]  --> To make a hard link directly into a soft link, use the -P
+
+Sebagai contoh, untuk menghubungkan direktori /user/local/downloads/logo ke folder /devisers, gunakan command berikut:
+
+  ln -s /user/local/downloads/logo /devisers
+  
+Setelah dibuat dan dilampirkan ke folder /devisers, symbolic link akan diarahkan ke /user/local/downloads/logo. Pada saat user mengubah direktori – cd – ke /devisers, secara otomatis sistemnya akan berganti ke file tertentu dan menuliskannya dalam command directory.
+
+Opsi symbolic link juga disebut sebagai command line switch. Berikut beberapa command switch yang paling sering digunakan beserta keterangannya:
+
+Command Switch	Keterangan
+ -backup[=CONTROL]	backup setiap file tujuan yang sudah ada
+ -d, -F, –directory	Superuser diperbolehkan untuk menggunakan hard link
+ -f, –force	        File tujuan yang sudah ada dihapus
+ -I, –interactive	prompt sebelum menghapus file tujuan
+ -L, –logical	        deference target yang adalah symbolic link
+ -n, –non-dereference	Symbolic link yang terhubung ke direktori disebut sebagai file
+ -P, –physical	        Membuat hard link langsung ke symbolic link
+ -r, –relative	        Membuat symbolic link ‘relative’ ke lokasi link
+ -s, –symbol	        Membuat symbolic link alih-alih hard link
+ -S, –suffix=SUFFIX	Menimpa backup ‘suffix’ yang biasanya
+ -v, –verbose	        Membuat nama dari setiap file yang terhubung
+ 
+ 
+ 
+D. Cara Mengganti atau Menghapus Symbolic Link pada Linux
+   Anda dapat menghapus link yang sudah ada dan disematkan ke file atau direktori
+   dengan command unlink atau rm. Berikut penggunaan command rm untuk menghapus
+   link:
+
+     unlink [symlink to remove]
+     
+   Menghapus symbolic link dengan command rm tidak berbeda jauh dengan menggunakan
+   command unlink. Berikut penggunaan commandnya:
+
+     rm [symlink name]
+
+   Contoh:
+     rm simpleText
+     
+     
+     
+ CATATAN :
+ Jika sumber file tidak lagi ada di lokasi saat ini, maka itu berarti Anda harus menghapus symbolic file untuk menghindari terjadinya duplikasi. Duplikasi tersebut dapat menurunkan performa.
+

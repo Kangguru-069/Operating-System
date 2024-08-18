@@ -1,0 +1,21 @@
+Pipes and Filters
+
+1. The grep Command
+   grep atau g/re/p ==> “globally search for a regular expression and print all
+                        lines containing it”.
+   Rumus :
+   $ grep [OPTIONS] pattern [FILE..]
+   Options:
+   $ man grep <-- to see options
+   Contoh :
+   $ ls -l | grep "Jun" <-- Juni
+   
+2. The sort Command
+   sort - sort lines of text files
+   $ sort file
+   
+3. The pg and more Commands
+   more - read a long list file or directory
+   Contoh :
+   $ ls -la | more
+   $ man more | more

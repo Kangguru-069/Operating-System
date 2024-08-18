@@ -1,0 +1,9 @@
+Menambah dan Menghapus User di Ubuntu
+
+1. Menambahkan User
+   - sudo adduser <namauser>
+   - Masukkan password 
+   
+2. Menghapus User
+   - sudo deluser <username>  (Menghapus user tanpa menghapus file milik user tersebut)
+   - sudo deluser --remove-home <username> (Menghapus user dan semua Direktori milik user tersebut)

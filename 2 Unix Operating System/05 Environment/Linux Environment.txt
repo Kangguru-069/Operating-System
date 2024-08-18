@@ -1,0 +1,136 @@
+Linux Environment 
+
+$DATA="Hello"
+
+$echo $DATA
+ output : Hello
+
+$set --> Untuk melihat dimana DATA yang dibuat diatas tersimpan.
+
+
+A. The .profile File
+
+When you log in to the system, the shell undergoes a phase called initialization to set up the environment. This is usually a two-step process that involves the shell reading the following files −
+
+  - /etc/profile
+  - profile
+  
+  Atau
+  - home/user/.profile
+  
+The file /etc/profile is maintained by the system administrator of your Unix
+machine and contains shell initialization information required by all users on
+a system.  
+
+The file .profile is under your control. You can add as much shell customization information as you want to this file. The minimum set of information that you need to configure includes −
+  - The type of terminal you are using.
+  - A list of directories in which to locate the commands.
+  - A list of variables affecting the look and feel of your terminal.
+You can check your .profile available in your home directory. Open it using the vi editor and check all the variables set for your environment. 
+
+Note − The shell initialization process detailed here applies to all Bourne type shells, but some additional files are used by bash and ksh.
+
+
+B. Setting the Terminal Type
+   1. csh or tcsh      ==> setenv TERM vt100
+   2. sh               ==> TERM=vt100; export TERM
+   3. ksh, bash or zsh ==> export TERM=vt100
+   
+   Setting the Terminal Type Permanent
+   1. csh  ==> .cshrc or .login
+   2. tcsh ==> .cshrc
+   3. ksh  ==> .profile
+   4. zsh  ==> .zshrc
+   5. bash ==> .bash_profile
+  
+C. Setting the PATH
+   When you type any command on the command prompt, the shell has to locate the
+   command before it can be executed.
+   
+   The PATH variable specifies the locations in which the shell should look for
+   commands. Usually the Path variable is set as follows −
+    $PATH=/bin:/usr/bin
+
+   Here, each of the individual entries separated by the colon character (:) are  
+   directories. If you request the shell to execute a command and it cannot find
+   it in any of the directories given in the PATH variable, a message similar to
+   the following appears −
+   $test
+   test: not found
+   
+D. PS1 and PS2 Variables
+   The characters that the shell displays as your command prompt are stored in the
+   variable PS1. You can change this variable to be anything you want. As soon as
+   you change it, it'll be used by the shell from that point on.
+   Contoh 1 :
+   $PS1='=>'   ==> Mengubah prompt menjadi =>
+   
+   
+   Contoh 2 :
+   $ echo "this is a
+   > test"
+   Output :
+   this is a
+   test
+   
+   Contoh 3 :
+   $ PS2="new prompt->"
+   $ echo "this is a
+   new prompt->test"
+   Output :
+   this is a
+   test
+   
+   
+E. Environtment Variabels
+   
+   1. DISPLAY
+      Contains the identifier for the display that X11 programs should use by
+      default.
+   2. HOME
+      Indicates the home directory of the current user: the default argument for
+      the cd built-in command.
+   3. IFS
+      Indicates the Internal Field Separator that is used by the parser for word
+      splitting after expansion.
+   4. LANG
+      LANG expands to the default system locale; LC_ALL can be used to override
+      this. For example, if its value is pt_BR, then the language is set to
+      (Brazilian) Portuguese and the locale to Brazil.
+   5. LD_LIBRARY_PATH
+      A Unix system with a dynamic linker, contains a colonseparated list of
+      directories that the dynamic linker should search for shared objects when
+      building a process image after exec, before searching in any other
+      directories.
+   6. PATH
+      Indicates the search path for commands. It is a colon-separated list of
+      directories in which the shell looks for commands.
+   7. PWD
+      Indicates the current working directory as set by the cd command.
+   8. RANDOM
+      Generates a random integer between 0 and 32,767 each time it is referenced
+   9. SHLVL
+      Increments by one each time an instance of bash is started. This variable is
+      useful for determining whether the built-in exit command ends the current
+      session.
+  10. TERM
+      Refers to the display type.
+  11. TZ
+      Refers to Time zone. It can take values like GMT, AST, etc.
+  12. UID
+      Expands to the numeric user ID of the current user, initialized at the shell
+      startup.
+      
+  CONTOH :
+  $ echo $HOME
+  output => /home/rahul
+  
+  $echo $DISPLAY
+  output => :0
+  
+  $echo $TERM
+  output => xterm-256color
+  
+  $echo $PATH
+  output => /usr/local/bin:/bin:/usr/bin:/home/amrood/bin:/usr/local/bin
+

@@ -1,0 +1,13 @@
+Menambah dan Menghapus User di Ubuntu
+
+1. Menambahkan User
+   - Setting -> User
+   - Unlock -> Masukkan Password
+   - Adduser -> Pilih Standard atau Administrator
+   - Masukkan Fullname, Username dan Password
+   - Add
+   
+2. Menghapus User
+   - Settings -> User
+   - Unlock -> Masukkan Password
+   - Pilih Username yang ingin dihapus Kemudian plih "Remove User"

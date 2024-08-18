@@ -1,0 +1,210 @@
+How to Customize Shell Variable PS1-PS4 on Bash Prompt
+
+Presentation of the different shell variable
+1. PS1: environment variable which contains the value of the default prompt. It
+   changes the shell command prompt appearance and environment.
+   
+2. PS2: environment variable which contains the value the prompt used for a command
+   continuation interpretation. You see it when you write a long command in many
+   lines.
+   
+3. PS3: environment variable which contains the value of the prompt for the select
+   operator inside the shell script.
+   
+4. PS4: environment variable which contains the value of the prompt used to show
+   script lines during the execution of a bash script in debug mode.
+ 
+====================================================================================
+
+1. Change the bash prompt PS1
+   PS1 is the default prompt we see every time when we log in the console. For the
+   most news Linux systems, the defaults values have \u@\h:\w\$ which show the
+   username, hostname, the current working directory and the user privilege. 
+   \u@ => username
+   \h: => hostname
+   \w  => working directory
+   \$  => user privilege
+   
+   There are some other values that we will see later. Let’s take a look at the PS1
+   prompt default value on the terminal.
+   $ echo $PS1 
+   \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$
+   
+   The parts that include debian_chroot indicate that if you are operating in a
+   change root environment, the prompt will be modified to remind you. Look below
+   to have a complete idea for the rest of the prompt:
+   Options escape sequences:
+     \a The ASCII bell character (you can also type \007)
+     \d Date in “Sat Sep 04″ format
+     \e ASCII escape character (you can also type \033)
+     \h First part of hostname (such as “mybox”)
+     \H Full hostname (such as “mybox.mydomain.com”)
+     \j The number of processes you’ve suspended in this shell by hitting ^Z
+     \l The name of the shell’s terminal device (such as “ttyp4″)
+     \n Newline
+     \r Carriage return
+     \s The name of the shell executable (such as “bash”)
+     \t Time in 24-hour format (such as “23:59:59″)
+     \T Time in 12-hour format (such as “11:59:59″)
+     \@ Time in 12-hour format with am/pm
+     \u Your username
+     \v Version of bash (such as 2.04)
+     \V Bash version, including patchlevel
+     \w Current working directory (such as “/home/rahul”)
+     \W The “basename” of the current working directory (such as “rahul”)
+     \! Current command’s position in the history buffer
+     \# Command number (this will count up at each prompt, as long as you type something)
+     \$ If you are not root, inserts a “$”; if you are root, you get a “#”
+     \xxx Inserts an ASCII character based on three-digit number xxx (replace unused digits with zeros, such as “\007″)
+     \\ A backslash
+     \[ This sequence should appear before a sequence of characters that don’t move the cursor (like color escape sequences). This allows bash to calculate word wrapping correctly.
+     \] This sequence should appear after a sequence of non-printing characters.
+
+CATATAN : Lakukan Backup sebelum melakukan manipulasi value dari sebuah variabel, sehingga jika terjadi kesalahan maka bisa di restore kembali.
+Contoh :
+$ cp ~/.bashrc ~/.bashrc-backup
+   
+Contoh 1 :
+Display only the username and the hostname with the separation character “-”:
+rahul@khan:~$ export PS1="\u - \h$ "
+Change :
+rahul - khan$ echo $PS1
+Output : \u - \h$
+
+We can see immediately the change on our console. Note that after the equals sign, we use the double quote ("") to use the \u and \h values. If we use another annotation, the shell will consider all after the equal sign as the value and we will not have the result we attend.
+   
+Contoh 2 :
+We simulate an error while displaying username and hostname because we will use ^ instead of "   
+rahul@khan:~$ export PS1=^\u - \h$ ^
+Change :
+^\u - \h$ ^$ echo $PS1
+Output : ^\u - \h$ ^   
+
+Contoh 3 :
+Passing string to PS1 variable
+rahul@khan:~$ export PS1=rahul-test$
+Change :
+rahul-test$
+
+Contoh 4 :
+Add time to the prompt with \t and the working directory with \w
+rahul - khan$ export PS1="[\t] \u@\h:\w\$"
+Change:
+[21:38:51] rahul@khan:~$
+
+Contoh 5 :
+Divide the prompt into multiple lines with \n for long command
+rahul@khan:~$ export PS1="[\t]\n\u@\h:\w\$"
+
+Change:
+[21:44:46]
+rahul@khan:~$
+
+
+
+2. Change the bash prompt PS2
+   When we are in the console, we can need to associate many commands in one
+   command. It makes the command too long for one line, so it can be broken down
+   into multiple lines by giving “\” at the end of each line. The default
+   interactive PS2 value prompt for a multi-line command is “>“ which indicates
+   that you can continue the command on the second line and so on.
+   Check PS2 :
+    $ echo $PS2
+    >
+   
+   Contoh 1 : The Default usage of PS2
+   $ apt-get update && \
+   > apt-get -y install mysql-client python-setuptools curl git unzip apache2 php && \
+   > apt-get upgrade
+   
+   Contoh 2 : You will replace the value by a sentence. Note the escape before the last quote
+   $ export PS2=”incomplete? continue here-> ”
+   $ apt-get update && \
+   incomplete? continue here-> apt-get -y install curl git unzip apache2 && \
+   incomplete? continue here-> apt-get upgrade
+   
+   
+   
+3. Change the bash prompt PS3
+   PS3 is used by the select operator inside a bash script. It is difficult to
+   have its value on a simple console. To show what we are talking about, we need
+   to write a simple bash script which will help us to see the value. The default
+   PS3 value prompt is “#?“
+   
+   Contoh 1 : Membuat Sebuah Script sederhana
+     #!/bin/bash
+     echo "please select a value to display a month on the list below"
+     select i in A B C exit
+     do
+          case $i in
+             A) echo "ei";;
+             B) echo "bi";;
+             C) echo "si";;
+             exit) exit;;
+          esac
+     done
+   
+   Contoh 2 : Test Menjalankan Sebuah Script
+     $ chmod +x ps3-test.sh
+     :~$./ps3-test.sh
+     1) A
+     2) B
+     3) C
+     4) exit
+     #? 3
+     C 
+     #?
+   Catatan : "#?" adalah PS3 value
+   
+   Contoh 3 : Modifikasi PS3 default value "#?" menjadi "test"
+     $ export PS3="choice: "
+     $./ps3-test.sh
+     Select a value to display a month on the below
+     1) A
+     2) B
+     3) C
+     4) exit
+     test: 2
+     B
+     test:        
+  
+4. Change the bash prompt PS4
+   The PS4 shows each line of a bash script when we are in debug mode before
+   executing lines. It helps to know which line doesn’t give the result attend.
+   We can display the value of PS4 with echo command. But in a bash script, we
+   can see it using bash -x  for the execution. The default PS4 value prompt is
+   “+“
+   
+   Contoh 1 : Membuat ps4-value (Interaktif)
+   $ echo $PS4
+   +
+   $ export PS4="[script line->:]"
+   $ chmod +x ps4-value.sh
+   $ bash -x ps4-value.sh 
+   [script line->: ]echo 'Please select a value to display a day on the list below'
+   Please select a value to display a day on the list below
+   [script line->: ]select i in sun mon tue wed quit
+   1) sun
+   2) mon
+   3) tue
+   4) wed
+   5) quit
+   #? 1
+   [script line->: ]case $i in
+   [script line->: ]echo sun
+   sun
+   #? 3
+   [script line->: ]case $i in
+   [script line->: ]echo tue
+   tue
+   
+   
+   
+To make changes permanent
+
+To make PS1 persistent on reboot, you have to add export command with variable to .bash_profile file.
+  $cat .bash_profile
+  export PS1="[\d][\t][\u@\h]"
+  
+Then load your default .bash_profile file
+  $ . .bash_profile

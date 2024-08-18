@@ -1,0 +1,24 @@
+Command Cheat Sheet :
+
+- cal --> Cek Kalender
+- passwd --> Ganti Password
+  Changing password for brenebon
+  (current) Unix password:******
+  New UNIX password:*******
+  Retype new UNIX password:*******
+  passwd: all authentication tokens updated  successfully
+  
+- whoami --> Cek User
+- users, who, w --> Cek Who is Logged in on the computer at the same time.
+
+- logout --> Logout from User
+
+- System Shutdown 
+  - halt  --> Brings the system down immediately
+  - init0 --> Powers off the system using predefined scripts to synchronize and
+              clean up the system prior to shutting down
+  - init6 --> Reboots the system by shutting it down completely and then restarting
+              it
+  - poweroff --> Shuts down the system by powering off
+  - reboot   --> Reboots the System
+  - Shutdown --> Shutdown the System

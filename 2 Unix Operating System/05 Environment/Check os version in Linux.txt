@@ -1,0 +1,15 @@
+Check os version in Linux
+
+1. $ cat /etc/os-release
+   $ grep '^VERSION' /etc/os-release
+   $ egrep '^(VERSION|NAME)=' /etc/os-release
+2. $ lsb_release -a
+3. $ hostnamectl
+
+command to find Linux kernel version
+4. $ uname -r 
+5. $ cat /proc/version
+
+6. $ cat /etc/issue file
+   $ more /etc/issue file
+   $ less /etc/issue file

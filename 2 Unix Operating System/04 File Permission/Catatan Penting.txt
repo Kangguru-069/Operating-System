@@ -1,0 +1,34 @@
+CATATAN PENTING :
+
+Contoh : 
+
+     $ ls -l /usr/bin/passwd
+       -r-sr-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd*
+     $
+     
+   Shows that the SUID bit is set and that the command is owned by the root. A
+   capital letter S in the execute position instead of a lowercase s indicates
+   that the execute bit is not set.
+   
+   If the sticky bit is enabled on the directory, files can only be removed if you
+   are one of the following users −
+   - The owner of the sticky directory
+   - The owner of the file being removed
+   - The super user, root
+   To set the SUID and SGID bits for any directory try the following command −
+     $ chmod ug+s dirname
+     $ ls -l
+       drwsr-sr-x 2 root root  4096 Jun 19 06:45 dirname
+     $
+     
+     
+     
+When applying permissions to directories on Linux, the permission bits have different meanings than on regular files.
+   1. The read bit (r) allows the affected user to list the files within the directory
+   2. The write bit (w) allows the affected user to create, rename, or delete files
+   within the directory, and modify the directory's attributes
+   3. The execute bit (x) allows the affected user to enter the directory, and access
+   files and directories inside
+   4. The sticky bit (T, or t if the execute bit is set for others) states that files
+   and directories within that directory may only be deleted or renamed by their
+   owner (or root)

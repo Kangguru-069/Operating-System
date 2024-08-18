@@ -1,0 +1,6 @@
+Remove (Delete) Symbolic Links in Linux
+
+- ls -l /usr/bin/python
+OUTPUT :
+lrwxrwxrwx 1 root root 9 Apr 16  2018 /usr/bin/python -> python2.7
+

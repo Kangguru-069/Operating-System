@@ -1,0 +1,19 @@
+What are the types of symbolic links in Ubuntu
+Soft Link: A soft link or symbolic link refers to the original file’s location or path. On the internet, it functions similarly to a hyperlink.
+Hard Link: A hard link works by generating a new filename related to the original file’s inode data (reference file). This is equivalent to making a copy of the specific file.
+Want to create symbolic links? In this article, we will explain how you can create symbolic links in Ubuntu. So let’s start!
+
+How to create a symbolic link for a directory in Ubuntu
+Ubuntu users utilize the “ln” command for creating symbolic links in their system. This command creates hard links by default. However, you can add the “-s” or the “–symbolic” option if you want to create a soft link.
+
+Now, check out the syntax of the “ln” command:
+
+  $ ln -s [Source_File_Path] [Symbolic_Link_Path]
+  
+To follow up the procedure of creating a symbolic link using the “ln” command, firstly, open your Ubuntu terminal by pressing “CTRL+ALT+T”. We will utilize the “ln” command for creating a symbolic link to any specific directory. Adding the “-s” option indicates that a soft link will be created for the specified directory. Here is the syntax of the “ln” command:
+
+  $ ln -s [Source_Directory_Path] [Symbolic_Link_Destination_Path]
+  
+We will execute the below-given command to create a soft symbolic link for the “Download” folder. This command will save the symbolic link to our “Desktop”:
+
+  $ ln -s /home/linuxhint/Download  /home/linuxhint/Desktop

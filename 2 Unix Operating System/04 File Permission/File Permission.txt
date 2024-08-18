@@ -1,0 +1,90 @@
+File Permission :
+
+A. The Permission Indicator dan File/Directories Access Modes 
+   Every file in Unix has the following attributes −
+   1. Owner permissions
+   2. Group permissions
+   3. Other (world) permissions
+  
+      1  2  3
+     rwxrwxrwx
+  
+     r (read)    = 4
+     w (write)   = 2
+     x (Execute) = 1
+  
+ 
+B. Changing Permission
+   + Add Permission
+   - Remove permision
+   = Set Design Permission
+   
+   Contoh :
+      chmod o+wx test    ==> o (other)
+      chmod u-x test     ==> u (user/owner)
+      chmod g=rx test    ==> g (group)
+      
+      chmod o+wx,u-x,g=rx test 
+      chmod o=rwx,u=rwx,g=rwx test 
+      
+      
+C. Using Chmod with Absolute Permissions
+   Chmod 777 test
+   chmod 755 test
+   
+D. Changing Owners and Groups
+   chown  ==> Owners
+   chgrp  ==> Groups
+   
+   chown [OPTIONS] [USER] [:GROUP] filename(s)
+   chgrp [OPTIONS] [:GROUP] filename(s)
+
+
+E. SUID and SGID File Permission
+   Often when a command is executed, it will have to be executed with special
+   privileges in order to accomplish its task.
+
+   Example, when you change your password with the passwd command, your new
+   password is stored in the file /etc/shadow.
+
+   As a regular user, you do not have read or write access to this file for
+   security reasons, but when you change your password, you need to have the write
+   permission to this file. This means that the passwd program has to give you
+   additional permissions so that you can write to the file /etc/shadow.
+   
+   Additional permissions are given to programs via a mechanism known as the Set
+   User ID (SUID) and Set Group ID (SGID) bits.
+   
+   When you execute a program that has the SUID bit enabled, you inherit the
+   permissions of that program's owner. Programs that do not have the SUID bit set
+   are run with the permissions of the user who started the program.
+   
+   This is the case with SGID as well. Normally, programs execute with your group
+   permissions, but instead your group will be changed just for this program to
+   the group owner of the program.
+   
+   The SUID and SGID bits will appear as the letter "s" if the permission is
+   available. The SUID "s" bit will be located in the permission bits where the
+   owners’ execute permission normally resides.
+   
+   For example, the command −
+
+     $ ls -l /usr/bin/passwd
+       -r-sr-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd*
+     $
+     
+   Shows that the SUID bit is set and that the command is owned by the root. A
+   capital letter S in the execute position instead of a lowercase s indicates
+   that the execute bit is not set.
+   
+   If the sticky bit is enabled on the directory, files can only be removed if you
+   are one of the following users −
+   - The owner of the sticky directory
+   - The owner of the file being removed
+   - The super user, root
+   To set the SUID and SGID bits for any directory try the following command −
+     $ chmod ug+s dirname
+     $ ls -l
+       drwsr-sr-x 2 root root  4096 Jun 19 06:45 dirname
+     $
+

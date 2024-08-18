@@ -1,0 +1,7 @@
+Memberikan Hak Sudo kepada user 
+
+- $sudo su
+- #visudo
+- masukkan nama user Pada bagian user privilege specification
+  contoh :
+  lengkuas ALL=(ALL:ALL) ALL

@@ -1,0 +1,4 @@
+Cara menggunakan sudo pada users
+
+- sudo ls -l /root
+- masukkan pasword

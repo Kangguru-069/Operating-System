@@ -1,0 +1,16 @@
+Cara Mengubah Kepemilikan Grup secara Rekursif
+
+Untuk secara rekursif mengubah kepemilikan grup dari semua file dan direktori di bawah direktori yang diberikan, gunakan opsi -R.
+
+Sebagai contoh, perintah berikut akan mengubah kepemilikan semua file dan direktori di bawah direktori /var/www ke grup www-data:
+
+chgrp -R www-data /var/www
+Ketika opsi rekursif ditentukan, chgrp tidak akan melintasi symbolic links dan tidak akan membuat perubahan pada symlink. Untuk mengubah kepemilikan grup atas tautan simbolik, berikan opsi -h:
+
+chgrp -hR www-data /var/www
+
+Opsi lain yang dapat digunakan ketika mengubah kepemilikan grup secara rekursif adalah -H dan -L.
+
+Jika argumen yang diteruskan ke perintah chgrp adalah symbolic link, opsi -H akan menyebabkan perintah untuk melewatinya. Opsi -L memberitahu chgrp untuk melintasi setiap symlink ke direktori yang ditemui. Dalam kebanyakan kasus, Anda tidak boleh menggunakan opsi ini karena Anda mungkin mengacaukan sistem Anda atau membuat risiko keamanan.
+
+

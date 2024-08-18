@@ -1,0 +1,64 @@
+Cara Membuat Symbolic Link di Windows
+
+Symbolic Link atau biasa disebut dengan symlink merupakan salah satu metode untuk pengelolaan data. Fungsinya hampir sama dengan shortcut hanya saja dengansymlink kita bisa menciptakan sebuah folder atau file yang berisi link ke folder asli sehingga folder symlink seolah-olah duplikasi dari folder aslinya. Penjelasan lengkap sekaligus implementasinya di platform Linux bisa dibaca di edisi cara membuat symbolic link di Linux. Edisi kali ini masih mengenai symlink namun dengan implementasi di platform Windows.
+
+A. Aplikasi Pendukung
+   Untuk bisa menggunakan symbolic link di Windows, kita membutuhkan Visual Studio
+   Redistributable 2005 yang berisi tentang prasyarat yang dibutuhkan sistem.
+   Selain itu untuk mempermudah pembuatan symlink, dibutuhkan juga aplikasi Link
+   Shell Extention. Pastikan Anda mengunduh versi yang tepat sesuai dengan Windows
+   Anda apakah 32-bit atau 64-bit. Install Visual Studio Redistributable 2005
+   terlebih dahulu, setelah itu install aplikasi Link Shell Extention.
+
+B. Menggunakan Link Shell Extention
+   Pertama yang dilakukan adalah menentukan folder atau file mana yang akan
+   dijadikan sumber link, klik kanan lalu pilih Pick Link Source. Gambar di bawah
+   menunjukkan bahwa saya memilih folder bisa-komputer untuk jadi link source.
+
+   1. Pick Link Source
+      Jika kemudian kita ingin membatalkan link yang baru diambil tadi, klik kanan
+      sekali lagi pada folder kemudian pilih Cancel Link Creation.
+   2. Cancel Link
+      Pilih direktori untuk menempatkan symlink, di sini saya memilih Desktop
+      sebagai tempat symlink. Selanjutnya klik kanan > Drop As … > Symbolic Link.
+   3. Create Symlink
+      Nanti akan muncul folder yang sama dengan source asli. Ada beberapa pilihan
+      pada menu Drop As seperti junction, Smart Copy, Smart Mirror, DeLorean Copy,
+      Symbolic Link Clone. Penjelasan masing masing fungsi dapat kita temukan di
+      dokumentasi Link Shell Extention melalui Start Menu.
+   4. LSE Documentation
+
+C. Menggunakan Command Prompt
+   Cara yang lain adalah dengan menggunakan Command Prompt (cmd). Ketikkan cmdpada
+   Start Menu, klik kanan lalu pilih Run as administrator untuk menjalankancommand
+   prompt sebagai administrator.
+
+   1. Run Cmd
+      Perlu diketahui, bentuk umum perintah untuk membuat symlink melalui command
+      prompt adalah sebagai berikut:
+      
+      mklink /prefix link_path file/folder_path
+      
+      prefix atau parameter yang tersedia adalah sebagai berikut:
+       /D – membuat soft symbolic link yang serupa dengan folder standar atau file
+            shortcut dalam Windows. Prefix ini merupakan default option dan
+            perintah mklink akan menggunakan prefix ini jika kita tidak memasukkan
+            prefix apa-apa.
+       /H – membuat hard link ke sebuah file.
+       /J – membuat hard link ke sebuah direktori atau folder.
+       
+      Contoh:
+      mklink /D E:\Bisa-Komputer\library E:\LIBRARY\EBOOKS
+      
+      artinya sebuah soft symlink berupa library pada direktori Bisa-Komputer yang
+      bersumber pada folder EBOOKS pada direktori LIBRARY.
+
+   2. Symlink Cmd
+      Nampak pesan di command prompt bahwa symbolic link telah berhasil dibuat,
+      dan di dalam folder Bisa-Komputer terdapat symlink library yang telah dibuat
+      tadi.
+   
+   3. Symlink Created
+
+Penutup
+Penggunaan symlink secara tepat dapat mempermudah pengelolaan data sehingga dapat meningkatkan efektifitas kerja. Aplikasi Link Shell Extention ini tak hanya bisa digunakan di Windows 7, tapi juga di Windows Vista atau Windows XP. Selamat mencoba dan semoga bermanfaat.

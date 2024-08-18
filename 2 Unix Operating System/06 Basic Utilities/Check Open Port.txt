@@ -1,0 +1,44 @@
+Check Open Port
+
+A. Linux OS
+lsof
+$ lsof -i -P -n
+$ lsof -i -P -n | grep LISTEN 
+$ lsof -i:22 ## see a specific port such as 22 ##
+$ doas -i -P -n | grep LISTEN ### [OpenBSD] ###
+
+netstat
+$ netstat -tulpn | grep LISTEN
+$ ss -tulpn | grep LISTEN
+$ ss -tulw (Latest Version Linux)
+$ ss -tulwn (Latest Version Linux)
+$ ss -tulwn | grep LISTEN (Latest Version Linux)
+  Options :
+  -t - TCP Sockets
+  -u - UDP Sockets
+  -l - Listening Sockets
+  -p - Process name the open sockets
+  -n - Don’t resolve service names i.e. don’t use DNS.
+       show exact bandwith values, instead of human readable
+
+nmap
+$ nmap -sTU -O IP-address-Here
+$ nmap -sT -O localhost
+$ nmap -sU -O 192.168.2.13 ##[ list open UDP ports ]##
+$ nmap -sT -O 192.168.2.13 ##[ list open TCP ports ]##
+
+
+B. Windows OS
+$ netstat -bano | more
+$ netstat -bano | grep LISTENING
+$ netstat -bano | findstr /R /C:"[LISTEING]"
+
+C. FreeBSD/MacOS X netstat syntax
+$ netstat -anp tcp | grep LISTEN
+$ netstat -anp udp | grep LISTEN
+
+D. OpenBSD netstat syntax
+$ netstat -na -f inet | grep LISTEN
+$ netstat -nat | grep LISTEN
+
+

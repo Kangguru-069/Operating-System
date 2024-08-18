@@ -1,0 +1,36 @@
+Directories :
+
+A. Home Directories
+   cd ~
+   cd ~namauser
+   cd -  ==> Kembali ke Directory Terakhir yang dibuka
+   
+B. Absolute/Relative Pathnames
+   pwd
+   
+C. Listing Directories
+   ls
+   
+D. Creating Directories
+   mkdir namafolder
+   mkdir /tmp/nama-dir
+   
+E. Creating Parent Directories
+   Jika muncul eror seprti dibawah :
+   mkdir /tmp/amrood/test
+   mkdir: Failed to make directory "/tmp/amrood/test"; 
+   No such file or directory
+   
+   mkdir -p /tmp/amrood/test
+   
+F. Removing Directories
+   rmdir namafolder
+   
+G. Changing Directories
+   cd 
+   
+I. Renaming Directories
+   mv folderlama folderbaru
+   
+   
+   

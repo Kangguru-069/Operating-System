@@ -1,0 +1,42 @@
+Perbedaan port slot PCI, PCI-E X16, AGP dan PCI-E x1
+
+Perbedaan slot PCI, PCI-E X16, AGP dan PCI-E x1 -  sobat warnet pasti sudah tahukan apa itu VGA card, VGA card adalah salah satu komponen pada PC yang berfungsi sebagai pengelola grafis pada satu komputer, nah biasanya VGA card itu di colok-kan pada Slot pada Motherboard yang nama slotnya adalah PCI-exspres nah ternyata banyak slot lainnya juga selai slot PCI-e oke mari disimak.
+
+4 jenis slot berbeda, kegunaan masing2 adalah :
+1. PCI-E X16 : Slot untuk VGA Card yang ada di motherboard baru mulai digunakan
+               secara luas saat motherboard dengan prosesor LGA 775 [Pentium4 dan
+               celeron]. sampai sekarang slot VGA ini masih digunakan.
+2. AGP : Slot VGA Card yang digunakan pada motherboard lama seperti LGA 478 dan
+         komputer Pentium3, saat ini sudah jarang digunakan dan dipasaran pun sudah
+         mulai langka.
+3. PCI : Slot PCI merupakan slot yang bisa dibilang multi fungsi karena sangat
+         banyak peripheral komputer yang menggunakan Slot PCI, dari mulai VGA [sudah
+         sangat jarang], ethernet card, LAN card, Sound card, USB card, Sata Card.
+4. PCI-E X1 : sama seperti slot PCI kegunaannya sangat banyak namun belum banyak
+              yang menggunakan slot ini.
+              
+              
+Bagaimana membedakan VGA AGP dan PCI Express (PCIex) adalah VGA eksternal berbeda, dalam hal kualitas dan fisik mereka berbeda. AGP memiliki 2 macam jenis versi AGP 4x dan 8x, terakhir dari AGP adalah AGP 3.0 yang umumnya disebut sebagai AGP 8x yang dirilis pada bulan November 2000. Spesifikasi ini mendefinisikan kecepatan hingga 533 MHz sehingga memungkinkan throughput teoritis hingga 2133 Megabyte / detik (dua kali lebih tinggi dibandingkan dengan AGP 4x). Namun demikian, fakta bahwa kinerja yang ditunjukkan oleh AGP 8x tidak benar-benar dua kali lebih tinggi dari 4x AGP, sedangkan PCI Express juga memiliki 2 jenis PCIex PCIex 1,0 dan 2,0. PCI Express adalah kemampuan 2 kali lebih dari kemampuan AGP 8x, kemudian disebut dengan PCIex 16x - 16x PCIex 1.0 atau - 2.0. Tapi sekarang keberadaan VGA AGP sudah langka karena produksi dihentikan, Banyak toko yang menjual AGP lebih mahal dari PCIex. Setiap kali Anda ingin membeli VGA untuk menggunakan Anda harus memiliki untuk mengetahui perbedaan baik secara fisik. Jika tidak maka kemungkinan Anda akan salah dalam memilih jenis VGA, jika Anda menggunakan AGP atau PCI Express VGA (PCIex). Anda harus membeli sesuai dengan dukungan motherboard Anda, jika Anda memiliki buku Anda harus membaca manual motherboard dan lihat apakah motherboard anda mendukung AGP atau PCI Slot VGA Express atau PCIex.
+
+Jika Anda tidak perlu langsung membongkar PC Anda dan lihat slotnya.Biasanya juga ditulis di papan jenis motherboard yang digunakan:
+
+Karakteristik yang dimiliki oleh slot AGP VGA adalah:
+
+* Bentuknya yang lebar dan pendek,
+* Pembatasnya dipusatkan
+* Warna slot tergantung pada merek dapat motherboar coklat, merah atau lainnya.
+
+Sedangkan karakteristik dari PCI Express VGA (PCIex), yaitu:
+
+* Bentuk lebih panjang sekitar 8-10cm
+* Pemisahnya hanya 1-2cm dari kiri.
+* Warna ini juga relatif.
+
+Ini adalah kecepatan lebar data maximun dari PCI Express
+Kecepatan              Max
+PCI-ex 1x              250 MB/s
+PCI-ex 2x              500 MB/s
+PCI-ex 4x (AGP)        1000 MB/s (Langka Karena diberhentikan)
+sPCI-ex 8x (AGP)       2000 MB/s (Langka Karena diberhentikan)
+PCI-ex 16x             4000 MB/s
+PCI-ex 32x             8000 MB/s

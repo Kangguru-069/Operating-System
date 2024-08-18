@@ -1,5 +1,5 @@
 Cara Beralih Antar Akun Pengguna
 
 - su <namauser>
-- su kisanak
+- su lengkuas
 - Masukkan Password

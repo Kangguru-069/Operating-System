@@ -1,0 +1,8 @@
+MYSQL :
+
+Create User first time:
+$ mysql -u root -p******
+
+Delete User :
+mysql> DROP USER 'username'@'host';
+mysql> DROP USER 'myuser'@'%';

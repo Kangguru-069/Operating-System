@@ -1,0 +1,42 @@
+Code Standar
+
+1. Kode ASCII(American Standard Code for Information Interchange)
+   Kode ini bernilai dari 0 sampai 127.
+   0-31,127 ==> Control Code
+   32-126   ==> Printable ASCII Code
+   65-90    ==> A-Z
+   
+   A. 7-bit
+      Kode ASCII yang standar menggunakan kombinasi 7-bit, dengan kombinasi sebanyak
+      0 - 127 (128).
+      ASCII 7-bit banyak digunakan untuk komputer-komputer generasi sekarang,
+      termasuk komputer mikro.
+      
+   B. 8-bit
+      ASCII 8-bit terdiri dari kombinasi 8-bit mulai banyak digunakan, karena lebih
+      banyak memberikan kombinasi karakter. Dengan ASCII 8-bit, karakter-karakter
+      graphic yang tidak dapat diwakili ASCII 7-bit, seperti ♥ ♦ ♣ ♠ á â ►◄
+      karakter dan sebagainya dapat diwakili. Komputer IBM PC menggunakan ASCII 8
+      bit.
+      
+2. Kode EBCID (Extended Binary Coded Decimal Interchange Code)
+   Menggunakan 8 bit perkarakter dengan 256 kombinasi karakter. Asynkron : 1 bit
+   awal, 8 bit data, 1 bit paritas dan 1 bit akhir. EBCDIC (Extended Binary Coded
+   Decimal Interchange Code) adalah kode 8-bit yang memungkinkan untuk mewakili
+   karakter sebanyak 256 (28) kombinasi karakter, pada EBCDIC,High-order bits atau
+   4-bit pertama disebut dengan zone bits dan low order bits atau 4-bit kedua
+   disebut dengan numeric bit.
+   Kode EBCDIC banyak dipakai pada computer generasi ke tiga, seperti pada sistem
+   operasi computer merk IBM, seperti z/OS, OS/390, VM, VSE, OS/400, dan i5/OS.
+   Kode EBCDIC ini juga dipakai untuk beberapa jenis komputer lain seperti Fujitsu
+   Siemens BS2000/OSD, HP MPE/iX, dan Unisys MCP.
+   Kode ini merupakan pengembangan dari kode 6-bit yang dipakai untuk port kartu
+   (punched card) pada komputer IBM antara akhir tahun 1950an dan awal tahun
+   1960an. Variasi dari kode EBCDIC ini disebut CCSID 500 yang ditampilkan pada
+   tabel di bawah ini dalam normat bilangan komputer hexadesimal. Kode 00 sampai
+   3F dipakai untuk huruf kendali, kode 40 untuk spasi, dan lain sebagainya.
+   
+   
+   
+   
+   

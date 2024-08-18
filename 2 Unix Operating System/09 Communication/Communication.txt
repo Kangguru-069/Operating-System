@@ -1,0 +1,108 @@
+Communication
+
+When you work in a distributed environment, you need to communicate with remote users and you also need to access remote Unix machines.
+There are several Unix utilities that help users compute in a networked, distributed environment.
+
+A. The ping Utility
+   The ping command sends an echo request to a host available on the network. Using
+   this command, you can check if your remote host is responding well or not.
+   Syntax :
+   $ ping hostname or ip-address
+   Contoh :
+   $ ping example.com
+   $ ping 192.x.x.x
+
+B. The FTP Utility
+   FTP stands for File Transfer Protocol. This utility helps you upload and
+   download your file from one computer to another computer.
+   The ftp utility has its own set of Unix-like commands.
+   Commands help to perform task :
+   - Connect and login to a remote host.
+   - Navigate directories.
+   - List directory contents.
+   - Put and get files.
+   - Transfer files as ascii, ebcdic(Extended Binary Coded Decimal Interchange
+     Code) or binary.
+   Syntax :
+   $ ftp hostname or ip-address
+   Note :
+   The above command would prompt you for the login ID and the password. Once you
+   are authenticated, you can access the home directory of the login account and
+   you would be able to perform various commands.
+   Commands :
+   1. put filename
+      Uploads filename from the local machine to the remote machine.
+   2. get filename
+      Downloads filename from the remote machine to the local machine.
+   3. mput file list
+      Uploads more than one file from the local machine to the remote machine
+   4. mget file list
+      Downloads more than one file from the remote machine to the local machine
+   5. prompt off
+      Turns the prompt off. By default, you will receive a prompt to upload or
+      download files using mput or mget commands.
+   6. prompt on
+      Turns the prompt on.
+   7. dir
+      Lists all the files available in the current directory of the remote machine
+   8. cd dirname
+      Changes directory to dirname on the remote machine.
+   9. lcd dirname
+      Changes directory to dirname on the local machine.
+   10. quit
+       Helps logout from the current login.
+   Contoh :
+   $ ftp example.com
+   Connected to example.com.
+   220 example.com FTP server (Ver 4.9 Thu Sep 2 20:35:07 CDT 2009)
+   Name (example.com:example): example
+   331 Password required for example.
+   Password:
+   230 User example logged in.
+   ftp> dir
+   fto> quit
+   
+C. The telnet Utility
+   Telnet is a utility that allows a computer user at one site to make a
+   connection, login and then conduct work on a computer at another site. Once you
+   login using Telnet, you can perform all the activities on your remotely
+   connected machine.
+   $ telnet example.com
+   Trying...
+   Connected to amrood.com.
+   Escape character is '^]'.
+
+   login: rahul
+   Password: **** 
+   
+D. The Finger Utility
+   The finger command displays information about users on a given host. The host
+   can be either local or remote.
+   Finger may be disabled on other systems for security reasons.
+   Following is the simple syntax to use the finger command −
+   
+   Check all the logged-in users on the local machine −
+   $ finger
+   Login     Name       Tty      Idle     Login Time      Office
+   rahul                 pts/0             Jun 25 08:03    (62.61.164.115)
+   
+   Get information about a specific user available on the local machine −
+   $ finger rahul
+   Login: rahul                            Name: (null)
+   Directory: /home/rahul                  Shell: /bin/bash
+   On since Thu Jun 25 08:03 (MST) on pts/0 from 62.61.164.115
+   No mail.
+   No Plan.
+   
+   Check all the logged-in users on the remote machine −
+   $ finger @rahul.com
+   Login     Name       Tty      Idle  Login Time   Office
+   rahul               pts/0          Jun 25 08:03 (62.61.164.115)
+   
+   Get the information about a specific user available on the remote machine −
+   $ finger rahul@surume.com
+   Login: rahul                           Name: (null)
+   Directory: /home/rahul                 Shell: /bin/bash
+   On since Thu Jun 25 08:03 (MST) on pts/0 from 62.61.164.115
+   No mail.
+   No Plan.

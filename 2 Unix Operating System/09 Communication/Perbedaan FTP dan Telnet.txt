@@ -1,0 +1,20 @@
+Perbedaan FTP dan Telnet
+
+Telnet digunakan untuk melakukan koneksi secara langsung (indirect network), sedangkan FTP menggunakan koneksi tidak langsung. Kedua jenis  TCP/IP koneksi ini menjadi dua model utama yang dikenalkan.
+
+Koneksi tidak langsung berarti menggunakan sumber daya dari remote-host dan menggunakannya pada sistem lokal. Kemudian mentransferkannya kembali ke remote-host.
+
+Standar FTP pertama kali adalah RFC 114 yang dikeluarkan pada tahun 1971, bahkan sebelum TCP dan IP ada. Standar ini digunakan untuk mendefinisikan perintah dasar yang digunakan untuk perencanaan sistem komunikasi yang ingin menggunakannya. Protokol FTP yang digunakan untuk standar internet disusun oleh komite Internet Engineering Task Force sebagai serangkaian dokumen resmi RFC (Request for Comments).
+
+FTP dibuat dengan tujuan agar pengguna dapat memindahkan file dari satu tempat ke tempat yang lainnya. Seperti protokol TCP/IP pada umumnya, ini didasarkan pada model client/server.
+
+
+Fungsi FTP Server dan Kegunaan FTP
+- Melakukan upload halaman website ke dalam web server/web hosting ke internet
+- Menjelajah dan mengunduh file dari situs perangkat lunak publik
+- Mengirimkan file yang berukuran besar menjadi dua partisi yang mungkin saja
+  terlalu besar untuk lampiran di dalam email
+- Mengunduh dan melakukan upload konten, seperti tugas kuliah ke FTP server
+- Mendistribusikan revisi terakhir program yang dilakukan oleh pengembang perangkat
+  lunak
+- Memperbarui revisi dari program yang dilakukan oleh aplikasi FTP developer

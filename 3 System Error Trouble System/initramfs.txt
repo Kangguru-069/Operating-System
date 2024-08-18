@@ -1,0 +1,7 @@
+INITRAMFS (fsck manual)
+
+- fdisk -l (csk drive)
+- lsblk (cek drive)
+- fsck -yv /dev/sda5
+- reboot
+- exit

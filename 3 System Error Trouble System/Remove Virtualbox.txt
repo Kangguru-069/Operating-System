@@ -1,0 +1,8 @@
+REMOVE VIRTUALBOX
+
+1. Check Packages
+   $ dpkg -l | grep virtualbox
+2. Uninstall Packages
+   $ sudo apt remove virtualbox* --purge
+  
+ 

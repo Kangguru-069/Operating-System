@@ -1,0 +1,12 @@
+Cara Melihat Lokasi RECYCLE BIN di LINUX Melalui Terminal:
+
+$ ls -la
+$ cd .local/share/Trash/files/
+
+Jika ingin menghapus file 
+$ sudo rm -rf nama Folder
+$ sudo rm -dr nama Folder
+
+
+
+

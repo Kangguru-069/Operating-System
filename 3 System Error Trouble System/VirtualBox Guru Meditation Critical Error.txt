@@ -1,0 +1,32 @@
+Mengatasi VirtualBox Guru Meditation Critical Error atau VirtualBox Kernel driver not installed (rc=1908)
+
+Solusi 1 :
+$ sudo apt --fix-broken install  virtualbox
+atau
+$ sudo apt --fix-broken install  virtualbox-7.0
+atau
+$ $  sudo apt --fix-broken install
+Jika instalasi atau perbaikan belum berhasil
+
+Solusi 2 :
+Pastikan kita memastikan menggunakan VirtualBox versi berapa
+Jika kita menggunakan VirtualBox Versi lama Coba Upgrade ke Versi Terbaru atau
+Jika kita menggunakan VirtualBox Versi Baru Coba Downgrade ke Versi Lama 
+Contoh :
+VirtualBox --> VirtualBox 
+
+1. Uninstall VirtualBox
+   $ sudo apt-get remove virtualbox
+2. Download VirtualBox Versi Terbaru
+3. Install VirtualBox
+   $ sudo apt install virtualBox
+4. Update dan Upgrade Operarting System (OS)
+   $ sudo apt update
+   $ sudo apt upgrade
+5. Jalankan VirtualBox Terbaru dan Coba jalankan kembali Operating System (OS)
+
+Dalam Kasus yang dihadapi, Saya berhasil memperbaiki system menggunakan Solusi 2
+   
+
+   
+   

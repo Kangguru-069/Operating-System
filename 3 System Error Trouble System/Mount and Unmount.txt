@@ -1,0 +1,5 @@
+MOUNT and UNMOUNT DISK
+
+unmount /media/user/disk_name/
+
+

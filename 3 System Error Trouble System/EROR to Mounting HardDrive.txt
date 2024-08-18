@@ -1,0 +1,6 @@
+EROR MOUNTING /dev/sdb1 at /media/ on Ubuntu
+
+- lsblk
+- df -h
+- sudo ntfsfix /dev/sdb1
+

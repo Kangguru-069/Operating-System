@@ -1,0 +1,29 @@
+PERINTAH TERMINAL YANG SERING DIGUNAKAN :
+
+1. CEK KAPASITAS HDD:
+   ~$ df -h
+
+2. CARA MENGATASI E:Error: Could Not Get Lock /var/lib/dpkg/lock PADA MESIN VIRTUAL
+   (Hal ini biasa terjadi Jika Aplikasi tidak bisa di Install di OS pada VirtualBox)
+   Masalah ini dikarenakan sebelumnya kita pernah mengupdate sistem melalui Software Center
+   bukan melalui Terminal: 
+   ~$ sudo rm /var/cache/apt/archives/lock
+   ~$ sudo rm /var/lib/dpkg/lock
+   ~$ reboot
+   ~$ sudo dpkg --configure -a
+
+
+3. Environment Variable :
+   ~$ env
+   ~$ env | grep PATH
+   ~$ echo $PATH
+   ~$ whereis ls  --> mencari lokasi dari program ls
+   ~$ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+   ~$ file
+   ~$ chmod +x ---> memberikan izin pada file/source agar bisa dieksekusi
+   ~$ chmod -x ---> Menghilangkan izin pada file/source agar tidak bisa dieksekusi
+
+
+   ~$ sudo apt-get purge google-chrome-stable  ---> Cara Uninstall Aplikasi di Linux Ubuntu 
+ 
+      rm ~/.config/google-chrome/ -rf

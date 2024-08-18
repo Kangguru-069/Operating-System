@@ -1,0 +1,28 @@
+Repair Corrupted XFS Filesystem with xfs_repair
+
+1. Mount Drive /media/disk(Drive) to /mnt/data(PC)
+
+   - Show drive
+     $ lsblk | grep sd
+
+   - Format filesystem
+     $ sudo mkfs.xfs -f /dev/sdb_part
+  
+   - Create mount point
+     $ sudo mkdir /mnt/sdb_part
+  
+   - Mount partition
+     $ sudo mount /dev/device /mnt/data
+  
+   - Check mount partition
+     $ sudo mount | grep /dev/sdb_part
+  
+   - Unmount partition
+     $ sudo umount /dev/sdb_part
+     
+2. Repair Filesystem Drive
+   
+   - Repair File System
+     sudo xfs_repair /dev/sdb_part
+     sudo xfs_repair -n /dev/sdb_part
+   

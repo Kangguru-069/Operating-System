@@ -1,0 +1,49 @@
+Instalasi DVWA (Damn Vulnerable Web Application) pada Server Ubuntu 18.04
+
+1. Update Server
+   $ sudo apt update && sudo apt upgrade
+2. Install dependency
+   $ apt install -y apache2 mariadb-server mariadb-client php php-mysqli php-gd libapache2-mod-php
+3. Create Directory
+   $ mkdir application
+4. Masuk ke dalam directory application
+   $ cd /application
+5. Clone git DVWA
+   $ sudo git clone https://github.com/digininja/DVWA.git
+6. Perbaikan owner dan permission akses DVWA
+   $ sudo cp -r DVWA /var/www/html
+7. Jalankan perintah secure installation untuk mysql
+   $ sudo mysql_secure_installation  
+     Enter current password for root (enter for none):
+     Switch to unix_socket authentication [Y/n] Y
+     Change the root password? [Y/n] Y
+     Remove anonymous users? [Y/n] Y
+     Disallow root login remotely? [Y/n] Y
+     Remove test database and access to it? [Y/n] Y
+     Reload privilege tables now? [Y/n] Y
+8. Membuat database untuk user DVWA
+   $ sudo mysql -u root -p
+   MariaDB [(none)]> CREATE DATABASE dvwa;
+   MariaDB [(none)]> CREATE USER dvwa IDENTIFIED BY 'p@ssw0rd';
+   MariaDB [(none)]> GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost' IDENTIFIED BY 'p@ssw0rd';
+   MariaDB [(none)]> FLUSH PRIVILEGES;
+9. Ubah Config DVWA
+   $ cd /var/www/html/DVWA/config
+   $ sudo cp config.inc.php.dist config.inc.php
+   $ sudo nano config.inc.php
+   
+     $_DVWA = array();
+     $_DVWA[ 'db_server' ]   = '127.0.0.1';
+     $_DVWA[ 'db_database' ] = 'dvwa';
+     $_DVWA[ 'db_user' ]     = 'dvwa';
+     $_DVWA[ 'db_password' ] = 'p@ssw0rd';
+     $_DVWA[ 'db_port'] = '3306';
+
+10. Akses DVWA melalui web browser 192.168.123.10/DVWA
+    username dan password Default DVWA
+    username : admin
+    password : password
+    
+    
+Sumber :
+https://bayuskylabs.com/instalasi-dvwa-damn-vulnerable-web-application-pada-ubuntu-22-04/

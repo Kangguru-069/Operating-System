@@ -1,0 +1,170 @@
+Decision Making
+
+A. If Else Statement
+   If else statements are useful decision-making statements which can be used to
+   select an option from a given set of options.
+
+B. case.. esac statement
+  The basic syntax of the case...esac statement is to give an expression to evaluate 
+  and to execute several different statements based on the value of the expression.
+
+A. If Else Statement
+
+1. If.. else Statement
+   - If.. fi
+     Syntax 
+     if [ expression ]
+     then 
+         statement(s) 
+     fi
+   Note : It is recommended to be careful with the spaces between braces and
+          expression. No space produces a syntax error.
+          
+          If expression is a shell command, then it will be assumed true if it
+          returns 0 after execution. If it is a Boolean expression, then it would
+          be true if it returns true.
+          
+          If Use ==, <, >, <=, <=   ---   Use bash to execute the shell
+   
+   Contoh :
+   #!/bin/sh
+
+   a=20
+   b=40
+
+   if [ $a -eq $b ]
+   then
+       echo "a is equal to b"
+   fi
+
+   if [ $a -ne $b ]
+   then
+       echo "a is not equal to b"
+   fi
+
+   Output :
+   a is not equal to b
+   
+2. If.. else.. fi
+   if [ expression ] 
+   then 
+       Statement(s) (TRUE)
+   else
+       Statement(s) (FALSE)
+   fi    
+   
+   Contoh :
+   #!/bin/sh
+
+   a=20
+   b=40
+
+   if [ $a -eq $b ]
+   then
+       echo "a is equal to b"
+   else
+       echo "a is not equal to b"
+   fi
+
+   Output :
+   a is not equal to b
+   
+3. If.. elif.. else.. fi
+   if [ expression 1 ]
+   then
+       Statement(s)
+   elif [ expression 2 ]
+   then 
+       Statement(s)
+   elif [ expression 3 ]
+   then 
+       Statement(s)
+   else
+       Statements(s)
+   fi 
+   
+   Contoh :
+   #!/bin/sh
+
+   a=20
+   b=40
+
+   if [ $a -eq $b ]
+   then
+       echo "a is equal to b"
+   elif [ $a -gt $b ]
+   then
+       echo "a is greater than b"
+   elif [ $a -lt $b ]
+   then
+       echo "a is less than b"
+   else
+       echo "None of the condition met"
+   fi
+   
+   Output :
+   a is less than b
+   
+   
+   
+B. case.. esac statement
+   Syntax :
+   case word in
+      pattern1)
+         Statement(s) to be executed if pattern1 matches
+         ;;
+      pattern2)
+         Statement(s) to be executed if pattern2 matches
+         ;;
+      pattern3)
+         Statement(s) to be executed if pattern3 matches
+         ;;
+      *)
+        Default condition to be executed
+        ;; 
+   esac
+   
+   Contoh 1 :
+   #!/bin/sh
+
+   FRUIT="grapes"
+
+   case "$FRUIT" in
+      "oranges") echo "Oranges" 
+      ;;
+      "grapes") echo "Grapes" 
+      ;;
+      "manggoes") echo "Manggoes" 
+      ;;
+   esac
+   
+   
+   A good use for a case statement is the evaluation of command line arguments 
+   Contoh :
+   #!/bin/sh
+   
+   option="${1}" 
+   
+   case ${option} in 
+      -f) FILE="${2}" 
+         echo "File name is $FILE"
+         ;; 
+      -d) DIR="${2}" 
+         echo "Dir name is $DIR"
+         ;; 
+      *)  
+         echo "`basename ${0}`:usage: [-f file] | [-d directory]" 
+         exit 1 # Command to come out of the program with status 1
+         ;; 
+   esac 
+   
+   OR
+   
+   $./test.sh
+   test.sh: usage: [ -f filename ] | [ -d directory ]
+
+   file="/var/www/unix/test.html"
+   $./test.sh -f test.html
+   File name is index html
+   $./test.sh -d test.html
+   Dir name is unix

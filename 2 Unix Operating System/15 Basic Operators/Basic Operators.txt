@@ -1,0 +1,25 @@
+Basic Operators
+
+Jenis-Jenis Operator
+1. Arithmetic Operators
+2. Relational Operators
+3. Boolean Operators
+4. String Operators
+5. File Test Operators
+
+Bourne Shell didnt originally have any mechanism to perform simple arithmetic but use external program, awk dan expr.
+
+Bourne shell tidak secara langsung melakukan mekanisme simple arithmetic melainkan menggunakan external program seoerti awk dan expr.
+
+Contoh :
+#!/bin/bash
+
+VALUE='expr 2 + 2'
+echo "Total : $VALUE"
+
+Output ==> Total : 4
+
+
+
+
+   

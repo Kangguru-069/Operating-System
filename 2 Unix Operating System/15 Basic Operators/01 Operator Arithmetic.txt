@@ -1,0 +1,62 @@
+1. Operator Arithmetic
+   The following arithmetic operators are supported by Bourne Shell.
+   Assume variable a holds 10 and variable b holds 20 :
+   => +  (Addition)	        Adds values on either side of the operator					`expr $a + $b` will give 30
+   => -  (Subtraction)		Subtracts right hand operand from left hand operand				`expr $a - $b` will give -10
+   => *  (Multiplication)	Multiplies values on either side of the operator				`expr $a \* $b` will give 200
+   => /  (Division)		Divides left hand operand by right hand operand				        `expr $b / $a` will give 2
+   => %  (Modulus)		Divides left hand operand by right hand operand and returns remainder	        `expr $b % $a` will give 0
+   => =  (Assignment)		Assigns right operand in left operand						a = $b would assign value of b into a
+   => == (Equality)		Compares two numbers, if both are same then returns true.			[ $a == $b ] would return false.
+   => != (Not Equality)	Compares two numbers, if both are different then returns true.		[ $a != $b ] would return true.
+
+   It is very important to understand that all the conditional expressions should be inside square braces with spaces around them. 
+   Example : [ $a == $b ] is correct whereas, [$a==$b] is incorrect. All the arithmetical calculations are done using long integers.
+   
+   Example :
+   #!/bin/sh
+
+   a=10
+   b=30
+
+   val=`expr $a + $b`
+   echo "a + b : $val"
+
+   val=`expr $a - $b`
+   echo "a - b : $val"
+
+   val=`expr $a \* $b`
+   echo "a * b : $val"
+
+   val=`expr $b / $a`
+   echo "b / a : $val"
+
+   val=`expr $b % $a`
+   echo "b % a : $val"
+
+   if [ $a == $b ]
+   then
+       echo "a is equal to b"
+   fi
+
+   if [ $a != $b ]
+   then
+       echo "a is not equal to b"
+   fi
+   
+   Output :
+   a + b : 40
+   a - b : -20
+   a * b : 300
+   b / a : 3
+   b % a : 0
+   a is not equal to b
+   
+   The following points need to be considered when using the Arithmetic Operators −
+   - There must be spaces between the operators and the expressions. For example,
+     2+2 is not correct; it should be written as 2 + 2.
+   - Complete expression should be enclosed between ‘ ‘, called the inverted
+     commas.
+   - You should use \ on the * symbol for multiplication.
+   - if...then...fi statement is a decision-making statement which has been
+     explained in the next chapter.

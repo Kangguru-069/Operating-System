@@ -1,0 +1,75 @@
+2. Relational Operators
+   Bourne Shell supports the following relational operators that are specific to
+   numeric values. These operators do not work for string values unless their value
+   is numeric.
+   
+   Operator	Description	Example
+   -eq	            =   	[ $a -eq $b ] 
+   -ne	           !=		[ $a -ne $b ]
+   -gt	           >		[ $a -gt $b ]
+   -lt		   <		[ $a -lt $b ]
+   -ge	  	   >=		[ $a -ge $b ]
+   -le	           <=		[ $a -le $b ]
+    
+    Contoh :
+    #!/bin/sh
+
+    a=20
+    b=50
+
+    if [ $a -eq $b ]
+    then
+        echo "$a -eq $b : Yes, a is equal to b"
+    else
+        echo "$a -eq $b: No, a is not equal to b"
+    fi
+
+    if [ $a -ne $b ]
+    then
+        echo "$a -ne $b: No, a is not equal to b"
+    else
+        echo "$a -ne $b : Yes, a is equal to b"
+    fi
+
+    if [ $a -gt $b ]
+    then
+        echo "$a -gt $b: a is greater than b"
+    else
+        echo "$a -gt $b: a is not greater than b"
+    fi
+
+    if [ $a -lt $b ]
+    then
+        echo "$a -lt $b: a is less than b"
+    else
+        echo "$a -lt $b: a is not less than b"
+    fi
+
+    if [ $a -ge $b ]
+    then
+        echo "$a -ge $b: a is greater or  equal to b"
+    else
+        echo "$a -ge $b: a is not greater or equal to b"
+    fi
+
+    if [ $a -le $b ]
+    then
+        echo "$a -le $b: a is less or  equal to b"
+    else
+        echo "$a -le $b: a is not less or equal to b"
+    fi
+    
+    Output :
+    20 -eq 50 : a is not equal to b
+    20 -ne 50 : Yes, a is not equal to b
+    20 -gt 50 : a is not greater than b
+    20 -lt 50 : a is less than b
+    20 -ge 50 : a is not greater or equal to b
+    20 -le 50 : a is less or equal to b    
+    
+    The following points need to be considered while working with relational
+    operators :
+    1. There must be spaces between the operators and the expressions. For example
+       2+2 is not correct; it should be written as 2 + 2.
+    2. if...then...else...fi statement is a decision-making statement which has
+       been explained in the next chapter.

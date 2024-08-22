@@ -1,0 +1,49 @@
+ARRAY VARIABEL
+
+Scalar Variabel  ==> Single Value
+Array  Variabel  ==> Multiple Values
+
+1. Defining Array Values
+   Scalar Variabel :
+    - Syntax : Variabel = Value
+    - Contoh :
+      Huruf1="A"
+      Nuruf2="B"
+      Nuruf3="C"
+   
+   Array Variabel :
+   - Syntax Bourne Shell : array_name[index] = Value  
+   - Syntax Bash Shell   : array_name=(value1 ... valuen)
+   - Syntax Korn Shell   : set -A array_name value1 value2 ... valuen
+   - Contoh Array :
+     Huruf[0]="A"
+     Huruf[1]="B"
+     Huruf[2]="C"
+
+2. Accessing Array Values
+   Syntax : ${array_name[index]}
+   Contoh 1 :
+   #!/bin/bash
+   
+   HURUF[0]="A"
+   HURUF[1]="B"
+   HURUF[2]="C"
+   HURUF[3]="D"
+   HURUF[4]="E"
+   
+   echo "Index 1 : ${HURUF[0]}"
+   echo "Index 2 : ${HURUF[1]}"
+   echo "Index 3 : ${HURUF[2]}"
+   
+   
+   Contoh 2 "Access All The Items":
+    #!/bin/bash
+   
+   HURUF[0]="A"
+   HURUF[1]="B"
+   HURUF[2]="C"
+   HURUF[3]="D"
+   HURUF[4]="E"
+   
+   echo "CARA 1 : ${HURUF[*]}"
+   echo "CARA 2 : ${HURUF[@]}"

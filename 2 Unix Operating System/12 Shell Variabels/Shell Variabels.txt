@@ -1,0 +1,90 @@
+Shell Variabels
+
+A variable is a character string to which we assign a value. The value assigned could be a number, text, filename, device, or any other type of data.
+
+A variable is a pointer to the actual data. The shell enables you to create, assign, and delete variables.
+
+A. Variabels Names
+   - Valid Variabel Names : 
+     _RAHUL
+     Variabel_A
+     VAR_1
+     VAR_2
+   
+   - Invalid Variabel Names :
+     2_VAR
+     -VARIABLE
+     VAR1-VAR2
+     VAR_A!
+     
+   Special Characters (!@#$%&*^) have a Special meaning for the shell.
+   
+B. Defining Variabels
+   Syntax :
+   variabel_name=variabel_value
+   
+   Contoh : "Scalar Value"
+   NAMA="Rahul Khan"
+   
+   Dengan Shell kita dapat menyimpan nilai apapun yang kita inginkan dalam sebuah
+   variabel. 
+   Contoh :
+   VAR1="Rahul Khan"
+   VAR2=200
+  
+C. Accessing Values
+   $NAMA <--- ini dinamakan sebuah prefix, yang berfungsi mengakses sebuah nilai
+              didalam sebuah variabel.
+   Contoh :
+   #!/bin/sh
+   
+   NAMA="Rahul Khan"
+   echo $NAMA
+   
+   Output : Rahul Khan
+   
+D. Read-Only Variabels
+   Read-only berfungsi sebagai penanda pada sebuah shell, nilai yang berada
+   pada shell tersebut tidak bisa di ubah.
+   Contoh :
+   #!/bin/sh
+   
+   NAMA="Rahul Khan"
+   readonly NAMA
+   NAMA="Salaman Kapoor"
+   
+   Output :
+   variabel.sh: 5: NAMA: is read only
+   
+E. Unsetting Variabels
+   Unsetting or deleting variabel berfungsi menghapus variabel yang berada pada
+   sebuah shell. jika melakukan unset pada sebuah variabel maka value atau nilai
+   yang berada pada sebuah variabel tidak akan bisa diakses.
+   Syntax :
+   unset variable_name
+   
+   Contoh :
+   #!/bin/sh
+   
+   NAMA="Rahul Khan"
+   unset NAMA
+   echo $NAMAs
+   
+   Contoh diatas tidak akan menampilkan apapun. 
+   Unset command tidak dapat digunakan pada variabel read only.
+   
+F. Variabel Types
+   3 Tipe Variabel yang ditampilkan saat shell dijalankan :
+   - Local Variabels :
+     Variable lokal adalah sebuah variabel yang ada pada sebuah shell. Lokal
+     variabel tidak ada pada program yang dijalankan dengan shell. Shell di set
+     dengan menggunakan command prompt.
+   - Environment Variabels :
+     Variabel environtment tersedia pada setiap child process pada sebuah shell.
+     beberapa program membutuhkan variabel environment agar dapat menjalankan
+     fungsinya dengan baik.  
+   - Shell Variabels :
+     Variabel shell adalah sebuah variabel special yang di set pada sebuah shell
+     dan dijalankan menggunakan sebuah shell sehingga function dari tersebut dapat
+     berjalan dengan baik. Beberapa variabel tersebut merupakan variabel
+     environment dan variabel lokal.

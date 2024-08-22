@@ -1,0 +1,71 @@
+LOOP CONTROL
+
+1. The Infinite Loop
+   A loop may continue forever if the required condition is not met. A loop that
+   executes forever without terminating executes for an infinite number of times.
+   For this reason, such loops are called infinite loops.
+
+2. The Break Statement 
+   Following break statement
+   Syntax :
+   break
+   
+   The Break Command to exi t nested loop
+   break n
+   
+   Contoh :
+   #!/bin/sh
+   
+   a=0
+   
+   while [ $a -lt 10 ]
+   do
+   	echo $a
+   	if [ $a -eq 5 ]
+   	then 
+   		break
+   	fi
+   	a=`expr $a + 1`
+   done
+   
+   
+   Contoh :
+   #!/bin/sh
+   
+   for var1 in 1 2 3 
+   do  
+      for var2 in 0 5
+      do
+         if [ $var1 -eq 2 -a $var2 -eq 0]
+         then
+            break 2
+         else
+            echo "$var1 $var2" 
+         fi
+      done
+   done
+   
+3. The continue statement
+   Syntax :
+   continue
+   
+   An integer argument can be given to the continue command to skip commands from
+   nested loops.
+   
+   continue n
+   
+   Contoh :
+   #!/bin/sh
+
+   NUMBERS="1 2 3 4 5 6 7"
+
+   for NUMBER in $NUMBERS
+   do
+      A=`expr $NUMBER % 2`
+      if [ $A -eq 0 ]
+      then
+         echo "Number is an even number!!"
+         continue
+      fi
+      echo "Found odd number"
+   done

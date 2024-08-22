@@ -1,0 +1,71 @@
+4. String Operators
+
+   Operator	Example
+      =	[ $a = $b ]
+     !=	[ $a != $b ]
+     -z	[ -z $a ]     ==> Checks if the given string operand size is zero;     if it is zero length, then it returns true.
+     -n	[ -n $a ]     ==> Checks if the given string operand size is non-zero; if it is nonzero length, then it returns true.
+     str	                  Checks if str is not the empty string; if it is empty, then it returns false.
+   
+     atau
+     -z  ==> Zero (TRUE), Not Zero(FALSE)
+     -n  ==> Not Zero (TRUE), Not Zero(FALSE)
+     str ==> Not Empty (TRUE), Empty(FALSE)
+   
+    Contoh :
+    #!/bin/sh
+
+    a="abc"
+    b="efg"
+    c=""
+
+    if [ $a = $b ]
+    then
+        echo "$a = $b : a is equal to b"
+    else
+        echo "$a = $b : a is not equal to b"
+    fi
+
+    if [ $a != $b ]
+    then
+        echo "$a != $b : Yes, a is not equal to b"
+    else
+        echo "$a != $b : No, a is equal to b"
+    fi
+
+    if [ -z $a ]
+    then
+        echo "-z $a : string length is zero, true"
+    else
+        echo "-z $a : string length is not zero, false"
+    fi
+
+    if [ -n $a ]
+    then
+        echo "-n $a : string length is not zero, true"
+    else
+        echo "-n $a : string length is zero, false"
+    fi
+    
+     if [ -n $c ]
+    then
+        echo "-n $a : string length is not zero, true"
+    else
+        echo "-n $a : string length is zero, false"
+    fi
+
+
+    if [ $a ]
+    then
+        echo "$a : string is not empty, true"
+    else
+        echo "$a : string is empty, false"
+    fi
+    
+    Output :
+    abc  = efg  : a is not equal to b
+    abc != efg  : a is not equal to b
+    -z $a       : string length is not zero, true 
+    -n $a       : string length is not zero, true
+    -n $c       : string length is zero, false
+    abc         : string is not empty

@@ -1,0 +1,85 @@
+5. File Test Operator
+   We have a few operators that can be used to test various properties associated with a Unix file.
+   Assume a variable file holds an existing file name "kabuto" the size of which is 100 bytes and has read, write and execute
+   
+   
+   Operator Check a File If :
+   
+   Operator	Description															Example
+   -b file	File is a block special file(TRUE)												[ -b $file ] 
+   -c file	File is a character special file(TRUE)											[ -c $file ] 
+   -d file	File is a directory(TRUE)													[ -d $file ] 
+   -f file	File is an ordinary file as opposed to a directory or special file (TRUE).							[ -f $file ] 
+   -g file	File has its set group ID (SGID) bit set (TRUE).										[ -g $file ]
+   -k file	File has its sticky bit set (TRUE)												[ -k $file ]
+   -p file	File is a named pipe (TRUE).													[ -p $file ] 
+   -t file	File descriptor is open and associated with a terminal (TRUE).								[ -t $file ] 
+   -u file	File has its Set User ID (SUID) bit set (TRUE).										[ -u $file ] 
+   -r file	File readable (TRUE), Not Readable (FALSE).											[ -r $file ] 
+   -w file	File writable (TRUE), Not Writable (FALSE).											[ -w $file ] 
+   -x file	File executable (TRUE), Not Executable (FALSE).										[ -x $file ] 
+   -s file	File size greater than Zero(TRUE), Not Greater than Zero(FALSE).								[ -s $file ] 
+   -e file	File exists (TRUE) even if file is a directory but exists.									[ -e $file ] 
+   
+   Contoh :
+   Assume a variable file holds an existing file name "/var/www/unix/str.sh" the size of which is 100 bytes and has read, write and execute permission
+   #!/bin/sh
+
+   file="/var/www/unix/str.sh"
+
+   if [ -r $file ]
+   then
+       echo "File has read access"
+   else
+       echo "File does not have read access"
+   fi
+
+   if [ -w $file ]
+   then
+       echo "File has write permission"
+   else
+       echo "File does not have write permission"
+   fi
+
+   if [ -x $file ]
+   then
+       echo "File has execute permission"
+   else
+       echo "File does not have execute permission"
+   fi
+
+   if [ -f $file ]
+   then
+       echo "File is an ordinary file"
+   else
+       echo "This is spcial file"
+   fi
+
+   if [ -d $file ]
+   then
+       echo "File is a directory"
+   else
+       echo "This is not a directory"
+   fi
+
+   if [ -s $file ]
+   then
+       echo "File size is not zero"
+   else
+       echo "File size is zero"
+   fi
+
+   if [ -e $file ]
+   then
+       echo "File exists"
+   else
+       echo "File does not exist"
+   fi
+   
+   Output :
+    File does not have write permission
+    File does not have execute permission
+    This is special file
+    This is not a directory
+    File size is not zero
+    File does not exist

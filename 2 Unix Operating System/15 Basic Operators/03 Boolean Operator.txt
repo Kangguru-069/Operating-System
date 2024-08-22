@@ -1,0 +1,49 @@
+3. Boolean Operators
+   The following Boolean operators are supported by the Bourne Shell.
+   Assume variable a holds 10 and variable b holds 20 then :
+   
+   Operator	Description	Example
+     !	           NOT  	[ ! false ] is true.
+    -o	           OR		[ $a -lt 20 -o $b -gt 100 ] is true.
+    -a	           AND		[ $a -lt 20 -a $b -gt 100 ] is false.
+    
+    Contoh :
+    #!/bin/sh
+
+    a=20
+    b=40
+
+    if [ $a != $b ]
+    then
+        echo "$a != $b : a is not equal to b"
+    else
+        echo "$a != $b: a is equal to b"
+    fi
+
+    if [ $a -lt 100 -a $b -gt 20 ]
+    then
+        echo "$a -lt 100 -a $b -gt 15 : true"
+    else
+        echo "$a -lt 100 -a $b -gt 15 : false"
+    fi
+
+    if [ $a -lt 100 -o $b -gt 100 ]
+    then
+        echo "$a -lt 100 -o $b -gt 100 : true"
+    else
+        echo "$a -lt 100 -o $b -gt 100 : false"
+    fi
+
+    if [ $a -lt 5 -o $b -gt 100 ]
+    then
+        echo "$a -lt 100 -o $b -gt 100 : true"
+    else
+        echo "$a -lt 100 -o $b -gt 100 : false"
+    fi
+    
+    
+    Contoh :
+    20 != 40 : a is not equal to b
+    20 -lt 100 -a 40 -gt 20  : true
+    20 -lt 100 -o 40 -gt 100 : true
+    20 -lt 5 -o 40 -gt 100   : false

@@ -1,0 +1,108 @@
+1. The Metacheracters
+   Unix Shell provides various metacharacters which have special meaning while using
+   them in any Shell Script and causes termination of a word unless quoted.
+   ? matches with a single character
+   * matches more than one character
+   Other Special Characters :
+   * ? [ ] ' " \ $ ; & ( ) | ^ < > new-line space tab
+   
+   Contoh 1 : (FALSE)
+   #!/bin/sh
+   
+   echo Hello; Helo
+   
+   Output :
+   line2: Helo: command not found
+   shell returned 127
+   
+   
+   Contoh 2 : (TRUE)
+   #!/bin/sh
+   
+   echo Hello\; Helo
+   
+   Output :
+   Hello; Helo
+   
+   
+   Contoh 3 : (TRUE)
+   #!/bin/sh
+   
+   echo "This is \$var"
+   
+   
+   Output :
+   This is $var
+   
+   
+Table Lists forms quoting :
+1. Single Quotes
+   All Special characters between these quotes lose their special meaning
+   
+2. Double Quotes
+   Most Special caharacters between these quotes lose their special meaning with
+   these exception
+   - $
+   - `
+   - \$
+   - \'
+   - \"
+   - \\
+   
+3. Backslash
+   Any character immediately following the backslash loses its special meaning
+   
+4. Back Quote
+   Anything in between back quotes would be treated as a command and would be
+   executed
+   
+   
+   
+1. The Single Quotes
+   Consider an echo command that contains many special shell characters 
+       echo <-$1500.**>; (update?) [y|n]
+     
+   Putting a backslash in front of each special is tedious and makes the line
+   difficult to read
+       echo \<-\$1500.\*\*\>\; \(update\?\) \[y\|n\]
+       
+   There is an easy way to quote a large group of characters.Put a single quote 
+   (') at the beginning and at the end of the string
+       echo '<-$1500.**>; (update?) [y|n]'
+       
+   Characters within single quotes are quoted just as if a backslash is in front
+   of each character. With this, the echo command displays in a proper way.
+   
+   If a single quote appears within a string to be output, you should not put the
+   whole string within single quotes instead you should precede that using a
+   backslash (\) 
+       echo 'It\'s Shell Programming
+       
+       
+2. The Double Quotes
+   Try to execute the following shell script. This shell script makes use of
+   single quote
+   
+   Contoh 1:
+   VAR=ARAARA
+   echo '$VAR owes <-$1000.**>; [ as of (`date +%m/%d`) ]'
+   
+   Output :
+   $VAR owes <-$1000.**>; [ as of (`date +%m/%d`) ]
+   
+   Contoh 2:
+   VAR=Musashichan
+   echo "$VAR owes <-\$1000.**>; [ as of (`date +%m/%d`) ]"
+   
+   Output :
+   MusashiChan owes <-$1000.**>; [ as of (`date +%m/%d`) ]
+   
+3. The Backquotes
+   Syntax to put any Shell command in between backquotes
+   
+   Syntax : 
+   var=`command`
+   
+   Contoh :
+   DATE=`date`
+   echo "Current Date: $DATE"

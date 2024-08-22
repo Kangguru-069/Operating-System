@@ -1,0 +1,163 @@
+SHELL LOOPS
+
+1. While Loop
+2. For Loop
+3. Until Loop
+4. Select Loop
+
+
+1. While Loop
+   Syntax :
+   while command
+   do 
+      Statement(s). 
+   done
+   
+   Contoh :
+   #!/bin/sh
+   
+   a=0
+   
+   while [ $a -lt 5 ]
+   do 
+      echo $a
+      a=`expr $a + 1`
+   done
+   
+   
+2. For Loop
+   for var in word1 word2 ... wordN 
+   do
+      Statement(s).
+   done
+   
+   Contoh 1 :
+   #!/bin/sh
+   
+   for var in 0 1 2 3 5
+   do 
+      echo $var
+   done
+   
+   OUTPUT :
+   0
+   1
+   2
+   3
+   4
+         
+   Contoh 2 :
+   #!/bin/sh
+   
+   for FILE in $HOME/.file
+   do
+      echo $FILE
+   done
+   
+   OUTPUT :
+   /root/.file
+   /root/.file2
+   /root/.file3
+   
+3. Until Command
+   Syntax :
+   until command
+   do
+     statement(s)
+   done
+   
+   Contoh :
+   #!/bin/sh
+   
+   a=0
+   
+   until [ ! $a -lt 10 ]
+   do 
+     echo $a
+     a=`expr $a + 1`
+   done
+   
+4. Select Loop
+   Syntax :
+   select var in word1 word2 ... wordN
+   do 
+      Statemeht(s) 
+   done
+   
+   Contoh :
+   #!/bin/ksh
+   
+   select NAME in abc def 123 456 none
+   do 
+      case $NAME in
+        abc|def)
+           echo "Ini adalah Huruf"
+           ;;
+        123|456)
+           echo "Ini adalah Angka"
+        none)
+           break
+           ;;
+        *)
+           echo "EROR : Invalid Selection"
+           ;;
+       esac
+   done
+    
+   change the prompt displayed by the select loop by altering the variable PS3 :
+   $PS3 = "Make a Selection => " ; export PS3
+   $./file.sh
+   1) abc
+   2) def
+   3) 123
+   4) 456
+   5) none
+   Make a Selection  => abc
+   Ini adalah Huruf
+   Make a Selection  => none
+   Exit 
+   
+5. Nesting Loops
+   Syntax :
+   while command1 ; # this is loop1, the outer loop
+   do
+      Statement(s) to be executed if command1 is true
+
+      while command2 ; # this is loop2, the inner loop
+      do
+         Statement(s) to be executed if command2 is true
+      done
+
+      Statement(s) to be executed if command1 is true
+   done    
+    
+   Contoh :
+   #!/bin/sh
+   
+   a=0
+   while [ "$a" -lt 5 ] # loop1
+   do 
+      b="$a"
+      while [ "$b" -ge 0 ] #loop2
+      do
+         echo -n "$b"
+         b=`expr $b - 1`
+      done
+      echo
+      a=`expr $a + 1`
+   done
+    
+
+Locate :
+/bin
+/sbin
+/lib
+
+/usr/bin
+/usr/sbin
+/usr/lib
+
+usr/local/bin
+usr/local/sbin
+usr/local/lib
+    

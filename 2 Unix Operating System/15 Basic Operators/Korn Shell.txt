@@ -1,0 +1,40 @@
+Korn SHELL Operator
+
+1. Arithmetic and Logical Operators
+   1. +   Unary Plus
+   2. -   Unary Minus
+   3. !~  Logical negation, binary Inversion (One Complement)
+   4  *   Multiply
+   5. /   Divide
+   6. %   Modulo
+   7. +   Add
+   8. -   Subtract
+   9. <<  Left shift
+   10. >> Right shift
+   11. == String comparison for equality
+   12. != String comparison for non equality
+   13. =~ Pattern matching
+   14. &  Bitwise "and"
+   15. ^  Bitwise "exclusive or"
+   16. |  Bitwise "inclusive or"
+   17. && Logical "and"
+   18. || Logical "or"
+   19. ++ Increment
+   20. -- Decrement
+   21. =  Assignment
+   
+2. File Test Operator (File Inquiry Operators)
+   1. -r file
+      Checks if file is readable; if yes, then the condition becomes true.
+   2. -w file
+      Checks if file is writable; if yes, then the condition becomes true.
+   3. -x file
+      Checks if file is executable; if yes, then the condition becomes true.
+   4. -f file
+      Checks if file is an ordinary file as opposed to a directory or special file; if yes, then the condition becomes true.
+   5. -s file
+      Checks if file has size greater than 0; if yes, then the condition becomes true.
+   6. -d file
+      Checks if file is a directory; if yes, then the condition becomes true.
+   7. -e file
+      Checks if file exists; is true even if file is a directory but exists.

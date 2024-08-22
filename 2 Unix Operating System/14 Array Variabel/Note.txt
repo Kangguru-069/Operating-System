@@ -1,0 +1,19 @@
+#!/bin/sh
+  
+HURUF[0]="A"
+HURUF[1]="B"
+HURUF[2]="C"
+HURUF[3]="D"
+HURUF[4]="E"
+
+# 1   
+echo "Index 1 : ${HURUF[0]}"
+echo "Index 2 : ${HURUF[1]}"
+echo "Index 3 : ${HURUF[2]}"
+
+# 2
+echo "Index 1 : " ${HURUF[0]}
+echo "Index 2 : " ${HURUF[1]}
+echo "Index 3 : " ${HURUF[2]}
+
+# Catatan : Kedua Sintaks ini sama2 bisa dijalankan

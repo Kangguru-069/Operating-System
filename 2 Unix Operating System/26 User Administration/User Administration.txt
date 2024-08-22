@@ -1,0 +1,149 @@
+USER ADMINISTRATION
+
+Three types of accounts on a Unix system :
+
+1. Root account
+   This is also called superuser and would have complete and unfettered control of
+   the system. A superuser can run any commands without any restriction. This user
+   should be assumed as a system administrator.
+
+2. System accounts
+   System accounts are those needed for the operation of system-specific components
+   for example mail accounts and the sshd accounts. These accounts are usually
+   needed for some specific function on your system, and any modifications to them
+   could adversely affect the system.
+
+3. User accounts
+   User accounts provide interactive access to the system for users and groups of
+   users. General users are typically assigned to these accounts and usually have
+   limited access to critical system files and directories.
+   
+   Unix supports a concept of Group Account which logically groups a number of
+   accounts. Every account would be a part of another group account. A Unix group
+   plays important role in handling file permissions and process management.
+   
+A. Managing Users and Groups
+   There are four main user administration files :
+   - /etc/passwd − Keeps the user account and password information. This file holds
+     the majority of information about accounts on the Unix system.
+   - /etc/shadow − Holds the encrypted password of the corresponding account. Not
+     all the systems support this file.
+   - /etc/group − This file contains the group information for each account.
+   - /etc/gshadow − This file contains secure group account information.
+   Check all the above files using the cat command.
+   
+   Table lists out commands that are available on majority of Unix systems to
+   create and manage accounts and groups :
+   1. useradd
+      Adds accounts to the system
+   2. usermod
+      Modifies account attributes
+   3. userdel
+      Deletes accounts from the system
+   4. groupadd
+      Adds groups to the system
+   5. groupmod
+      Modifies group attributes
+   6. groupdel
+      Removes groups from the system
+      
+B. Create a Group
+   we need to create groups before creating any account otherwise, we can make use
+   of the existing groups in our system. We have all the groups listed in /etc
+   groups file.
+      
+   All the default groups are system account specific groups and it is not
+   recommended to use them for ordinary accounts.
+   Syntax Create a new group account :   
+   $ groupadd [-g gid [-o]] [-r] [-f] groupname
+   
+   Table Lists :
+   1. -g GID
+      The numerical value of the group's ID
+   2. -o
+      This option permits to add group with non-unique GID
+   3. -r
+     This flag instructs groupadd to add a system account
+   4. -f
+      This option causes to just exit with success status, if the specified group
+      already exists. With -g, if the specified GID already exists, other (unique)
+      GID is chosen
+   5. groupname
+      Actual group name to be created
+      
+   If you do not specify any parameter, then the system makes use of the default
+   values.
+   Contoh :
+   $ groupadd groupname
+   
+C. Modify a Group
+   Syntax :
+   $ groupmod -n new_modified_group_name old_group_name
+   Contoh 1 Change Group Name:
+   $ groupmod -n groupname1 groupname2
+   Contoh 2 Change GID(Groups ID) :
+   $ groupmod -g 444 groupname
+   
+D. Delete a Group 
+   To delete an existing group, all you need is the groupdel command and the group
+   name.
+   Syntax :
+   $ groupdel groupname
+   This removes only the group, not the files associated with that group. The
+   files are still accessible by their owners.
+
+E. Create an Account 
+   Syntax :
+   $ useradd -d homedir    -g groupname    -m -s shell    -u userid accountname
+   Table Lists :
+   1. -d homedir
+      Specifies home directory for the account
+   2. -g groupname
+      Specifies a group account for this account
+   3. -m
+      Creates the home directory if it doesn't exist
+   4. -s shell
+      Specifies the default shell for this account
+   5. -u userid
+      You can specify a user id for this account
+   6. accountname
+      Actual account name to be created
+      
+   If you do not specify any parameter, then the system makes use of the default
+   values. The useradd command modifies the /etc/passwd, /etc/shadow, and /etc
+   group files and creates a home directory.
+   
+   Example :
+   Creates an account rahul : 
+   1. setting its home directory to /home/rahul 
+   2. group as developers. 
+   3. This user would have Korn Shell assigned to it.
+   
+   Syntax :
+   $ useradd -d /home/rahul -g groupname -s /bin/ksh rahul
+   
+   Before run the above command, make sure you already have the group created
+   using the groupadd command.
+   
+   Once an account is created you can set its password using the passwd :
+   $ passwd rahul
+   Changing password for user rahul.
+   New UNIX password:
+   Retype new UNIX password:
+   passwd: all authentication tokens updated successfully.
+   
+F. Modify an Account
+   The usermod command enables you to make changes to an existing account from
+   the command line. It uses the same arguments as the useradd command, plus the
+   -l argument, which allows you to change the account name.
+   Contoh :
+   $ usermod -d /home/rahul -m -l rahul amitabachan
+   
+G. Delete an Account 
+   The userdel command can be used to delete an existing user. This is a very
+   dangerous command if not used with caution.
+   
+   There is only one argument or option available for the command -r, for
+   removing the account's home directory and mail file.
+   Contoh :
+   $ userdel -r amitabachan

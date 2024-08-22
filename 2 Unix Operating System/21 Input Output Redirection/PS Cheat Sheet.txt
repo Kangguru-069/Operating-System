@@ -1,0 +1,5 @@
+Background Process Cheat Sheet :
+
+ps -aux
+ps -ef
+ps T

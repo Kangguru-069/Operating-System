@@ -1,0 +1,52 @@
+SYSTEM PERFORMANCE
+
+A Free tools that are available to monitor and manage performance on Unix systems. These tools also provide guidelines on how to diagnose and fix performance problems in the Unix environment.
+
+Major resource types that need to be monitored and tuned :
+- CPU
+- Memory
+- Disk Space
+- Communications Lines
+- I/O Time
+- Network Time
+- Applications Programs
+
+1. Performance Components
+   1. User State CPU
+      The actual amount of time the CPU spends running the users’ program in the
+      user state. It includes the time spent executing library calls, but does not
+      include the time spent in the kernel on its behalf
+   2. System State CPU
+      This is the amount of time the CPU spends in the system state on behalf of
+      this program. All I/O routines require kernel services. The programmer can
+      affect this value by blocking I/O transfers
+   3. I/O Time and Network Time
+      This is the amount of time spent moving data and servicing I/O requests
+   4. Virtual Memory Performance
+      This includes context switching and swapping
+   5. Application Program
+      Time spent running other programs - when the system is not servicing this
+      application because another application currently has the CPU
+      
+2. Performance Tools
+   Unix provides following important tools to measure and fine tune Unix system
+   performance
+   1. nice/renice
+      Runs a program with modified scheduling priority
+   2. netstat
+      Prints network connections, routing tables, interface statistics, masquerade
+      connections, and multicast memberships
+   3. time
+      Helps time a simple command or give resource usage
+   4. uptime
+      This is System Load Average
+   5. ps
+      Reports a snapshot of the current processes
+   6. vmstat
+      Reports virtual memory statistics
+   7. gprof
+      Displays call graph profile data
+   8. prof
+      Facilitates Process Profiling
+   9. top
+      Displays system tasks

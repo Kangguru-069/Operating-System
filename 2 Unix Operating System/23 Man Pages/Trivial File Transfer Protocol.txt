@@ -1,0 +1,64 @@
+TFTP (Trivial File Transfer Protocol)
+
+TFTP adalah singkatan dari Trivial File Transfer Protocol. Ini adalah teknologi untuk mentransfer file antar perangkat jaringan dan merupakan versi sederhana dari File Transfer Protocol.
+
+TFTP dikembangkan pada tahun 1970 untuk komputer yang kurang memiliki memori atau ruang disk yang cukup untuk menyediakan dukungan FTP penuh. Hari ini, TFTP juga ditemukan pada kedua router broadband konsumen dan router jaringan komersial.
+
+Administrator jaringan rumah terkadang menggunakan TFTP untuk meningkatkan firmware router mereka, sementara administrator profesional mungkin juga menggunakan TFTP untuk mendistribusikan perangkat lunak di seluruh jaringan perusahaan.
+
+
+Cara Kerja TFTP
+Seperti FTP, TFTP menggunakan perangkat lunak klien dan server untuk membuat koneksi antara dua perangkat. Dari klien TFTP, file individu dapat disalin (diunggah) ke atau diunduh dari server. Dengan kata lain, server host file sementara permintaan klien atau mengirimnya.
+
+TFTP juga dapat digunakan untuk mulai dari jarak jauh komputer dan membuat cadangan file konfigurasi jaringan atau router.
+
+TFTP bergantung pada UDP untuk mengangkut data.
+
+
+
+Klien TFTP dan Perangkat Lunak Server
+Klien TFTP command-line termasuk dalam versi Microsoft Windows, Linux, dan macOS saat ini.
+
+Beberapa klien TFTP dengan antarmuka grafis juga tersedia sebagai freeware, seperti TFTPD32, yang termasuk server TFTP. Windows TFTP Utility adalah contoh lain dari klien dan server GUI untuk TFTP, tetapi ada beberapa klien FTP gratis lainnya yang dapat Anda gunakan juga.
+
+Microsoft Windows tidak mengirim dengan server TFTP tetapi beberapa server Windows TFTP gratis tersedia untuk diunduh. Sistem Linux dan macOS biasanya menggunakan server tftpd TFTP, meskipun mungkin dinonaktifkan secara default.
+
+
+Cara Menggunakan Klien TFTP di Windows
+Klien TFTP di Windows tidak diaktifkan secara default. Hidupkan melaluiProgram dan fitur Applet Panel Kontrol:
+
+1. Buka Control Panel lalu buka Program dan fitur.
+2. Memilih Aktifkan atau matikan fitur Windows dari sisi kiri Control Panel untuk
+   dibuka Fitur Windows. Atau, jalankan fitur pilihan perintah di Command Prompt
+   atau kotak dialog Run.
+3. Gulir ke bawah di jendela "Fitur Windows" dan beri tanda centang pada kotak di
+   sebelahnya Klien TFTP.
+
+Setelah terinstal, Anda dapat mengakses TFTP melalui Command Prompt dengan tftp perintah. Gunakan perintah bantuan bersama dengan itu jika Anda memerlukan informasi tentang cara menggunakan TFTP, atau lihat halaman referensi baris perintah tftp di situs web Microsoft.
+
+
+
+TFTP vs. FTP
+Trivial File Transfer Protocol berbeda dari FTP dalam hal-hal kunci:
+
+1. Versi asli TFTP hanya memungkinkan mentransfer file hingga ukuran 32 MB.
+   Beberapa server TFTP yang lebih baru menghapus pembatasan ini atau mungkin
+   membatasi hingga 4 GB.
+2. Tidak seperti FTP, TFTP tidak memiliki fitur masuk, sehingga tidak meminta nama
+   pengguna dan kata sandi. Hindari menggunakan TFTP untuk berbagi file sensitif -
+   Anda tidak dapat melindungi mereka atau mengaudit akses mereka.
+3. Mendaftar, mengganti nama, dan menghapus file melalui TFTP adalah biasanya
+   tidak diizinkan.
+4. TFTP menggunakan port UDP 69 untuk membuat koneksi jaringan sementara FTP
+   menggunakan port TCP 20 dan 21.
+
+Karena TFTP diimplementasikan menggunakan UDP, biasanya hanya bekerja pada jaringan area lokal.
+
+
+
+Transfer File Teratas dan Pengunduhan Unduhan File
+Pengaya dan ekstensi peramban ini mempermudah pengunduhan yang Anda inginkan, termasuk audio dan video, serta mentransfer file.
+
+
+Enkripsi transfer file
+Enkripsi transfer file mengubah data biasa menjadi teks yang tidak dapat dibaca, acak yang tidak dapat digunakan sampai didekripsi di tujuannya.

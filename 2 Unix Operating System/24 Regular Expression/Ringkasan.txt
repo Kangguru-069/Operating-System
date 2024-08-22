@@ -1,0 +1,120 @@
+RINGKASAN : 
+
+Ammpersand & - represents the contents of the pattern that was matched.
+
+CONTOH :
+--> file.txt
+
+
+$ sed -e 's/^[[:upper:]]/&/g' file.txt
+OUTPUT :
+AAAAAAA
+
+$ sed -e 's/^[[:upper:]]/(&)/g' file.txt
+OUTPUT :
+(A)AAAAAAA
+
+$ sed -e 's/^[[:upper:]]/{3/}/(&)/g' file.txt
+OUTPUT :
+(AAA)AAAAA
+
+
+
+
+
+
+
+$ sed -e 's/[[:digit:]]/(&)/g' file.txt
+OUTPUT :
+(1)(2)(3)AAAAAAA(4)(5)(6)
+
+$ sed -e 's/[[S:upper:]]/(&)/g' file.txt
+OUTPUT :
+(A)(A)(A)(A)(A)
+
+
+
+
+
+
+
+
+$ sed -e 's/^[[:digit:]]/{3/}/(&)/g' file.txt
+OUTPUT :
+AAAAAAAA
+
+$ sed -e 's/^[[:upper:]]/{3/}/(&)/g' file.txt
+OUTPUT :
+(AAA)AAAA
+
+$ sed -e 's/^[[:upper:]]/{3/}/&-/g' file.txt
+OUTPUT :
+AAA-AAAA
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+$ sed -e 's/^[[:digit:]]\{3\}/(&)/g' 
+ 
+                 (111)111-1111
+                  
+      -e 's/)[[:digit:]]\{3\}/&-/g' phone.txt 
+
+$ cat phone.txt | 
+
+
+sed 's/
+\(.*)\)
+\(.*-\)
+\(.*$\)/Area \code: \1 Second: \2 Third: \3/' 
+
+
+
+$ sed -e 
+
+'s/
+^
+[[:digit:]]
+[[:digit:]]
+[[:digit:]]
+/(&)
+/g' 
+phone.txt
+
+
+
+
+CATATAN : PERHATIKAN TABEL ReGEX

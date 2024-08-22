@@ -1,0 +1,135 @@
+Input Output Redirections
+
+
+OUTPUT REDIRECTION
+Contoh 1:
+$ who > file.txt
+$ date > file.txt
+
+Read :
+$ cat file.txt
+$ nano file.txt
+
+Contoh 2: Redirect to a file
+$ echo Hello Hello > file.txt
+$ cat file.txt
+$ nano file.txt
+
+Contoh 3: Assignment
+$ echo Hello My Friend >> file.txt
+
+
+INPUT REDIRECTION
+the greater-than character > is used for output redirection, 
+the less-than character < is used to redirect the input of a command.
+   wc - print newline, word and byte counts for each file
+Contoh 1:
+$ wc -l file.txt
+1 file.txt
+$ wc -l < file.txt
+1
+
+- In the first case, the name of the file users is listed with the line count.
+- In the second case, it is not.
+
+
+HERE DOCUMENT
+A here document is used to redirect input into an interactive shell script or program.
+
+Interactive Shell :
+Interactive shell reads commands from user input on a tty. Among other things, such a shell reads startup files on activation, displays a prompt, and enables job control by default. The user can interact with the shell.
+Non Interactive Shell :
+A shell running a script is always a non-interactive shell. All the same, the script can still access its tty. It is even possible to emulate an interactive shell in a script.
+
+We can run an interactive program within a shell script without user action by supplying the required input for the interactive program, or interactive shell script.
+
+Syntax :
+command << delimiter
+document
+delimiter
+
+Contoh 1 :
+$ nano file.txt 
+$ wc -l << File.txt
+  Ini baris 1
+  Ini Baris 2
+
+
+
+Contoh 2 :
+#!/bin/sh
+
+cat << FILE
+Ini adalah Baris 1
+Ini adalah Baris 2
+
+Output :
+Ini adalah Baris 1
+Ini adalah Baris 2
+
+
+
+Contoh 3 :
+#!/bin/sh
+
+filename=file.txt
+vi $filename <<EndOfCommands
+This file was created automatically from
+a shell script.
+^[
+ZZ
+EndOfCommands
+
+Executed :
+$ sh test.sh
+Warning: Input is not from terminal
+
+$ cat file.txt
+  This file was created automatically from
+  a shell script
+
+
+
+DISCARD THE OUTPUT
+Sometimes you will need to execute a command, but you don't want the output displayed on the screen. In such cases, you can discard the output by redirecting it to the file /dev/null 
+     $ command > /dev/null
+     
+Here command is the name of the command you want to execute. 
+The file /dev/null is a special file that automatically discards all its input.
+    
+To discard both output of a command and its error output, use standard redirection to redirect STDERR to STDOUT −
+     $ command > /dev/null 2>&1
+     
+Here 2 represents STDERR and 1 represents STDOUT. You can display a message on to STDERR by redirecting STDOUT into STDERR as follows −
+     $ echo message 1>&2
+     
+
+REDIRECTION COMMANDS
+1. pgm > file
+   Output of pgm is redirected to file
+2. pgm < file
+   Program pgm reads its input from file
+3. pgm >> file
+   Output of pgm is appended to file
+4. n > file
+   Output from stream with descriptor n redirected to file
+5. n >> file
+   Output from stream with descriptor n appended to file
+6. n >& m
+   Merges output from stream n with stream m
+7. n <& m
+   Merges input from stream n with stream m
+8. << tag
+   Standard input comes from here through next tag at the start of line
+9. |
+   Takes output from one program, or process, and sends it to another
+
+
+
+     
+CATATAN :
+Note that, 
+The file descriptor 0 is normally standard input (STDIN) 
+1> is standard output (STDOUT) 
+2> is standard error output (STDERR).
+With &> you redirect both standard error and standard output.

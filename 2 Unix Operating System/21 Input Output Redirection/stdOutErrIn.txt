@@ -1,0 +1,8 @@
+The file descriptor 0 is normally standard input (STDIN) 
+1> is standard output (STDOUT) 
+2> is standard error output (STDERR).
+With &> you redirect both standard error and standard output.
+
+Contoh :
+2>/dev/null or 2>/home/user/error.log.
+

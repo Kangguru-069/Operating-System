@@ -1,0 +1,34 @@
+Man Page Help
+
+All the Unix commands come with a number of optional and mandatory options. It is very common to forget the complete syntax of these commands.
+
+Because no one can possibly remember every Unix command and all its options, we have online help available to mitigate this right from when Unix was at its development stage.
+
+Syntax :
+$ man [command]
+Contoh :
+$ man ls
+$ man grep
+.........
+
+MAN PAGE SECTION
+Man pages are generally divided into sections, which generally vary by the man page author's preference.
+
+1. NAME
+   Name of the command
+2. SYNOPSIS
+   General usage parameters of the command
+3. DESCRIPTION
+   Describes what the command does
+4. OPTIONS
+   Describes all the arguments or options to the command
+5. SEE ALSO
+   Lists other commands that are directly related to the command in the man page
+   or closely resemble its functionality
+6. BUGS
+   Explains any known issues or bugs that exist with the command or its output
+7. EXAMPLES
+   Common usage examples that give the reader an idea of how the command can be
+   used
+8. AUTHORS
+   The author of the man page/command

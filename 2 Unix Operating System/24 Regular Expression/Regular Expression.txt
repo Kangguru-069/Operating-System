@@ -1,0 +1,118 @@
+REGULAR EXPRESSION
+
+A regular expression is a string that can be used to describe several sequences of characters. Regular expressions are used by several different Unix commands, including ed, sed, awk, grep, and to a more limited extent, vi.
+
+SED stands for Stream EDitor. This stream-oriented editor was created exclusively for executing scripts. Thus, all the input you feed into it passes through and goes to STDOUT and it does not change the input file.
+
+1. Invoking SED
+   Before we start, let us ensure we have a local copy of /etc/passwd text file to
+   work with sed.
+   
+   $ cat /etc/passwd | sed
+   Usage: sed [OPTION]... {script-other-script} [input-file]...
+
+     -n, --quiet, --silent
+                    suppress automatic printing of pattern space
+     -e script, --expression = script
+   ...............................
+   The cat command dumps the contents of /etc/passwd to sed through the pipe into
+   sed's pattern space. The pattern space is the internal work buffer that sed uses
+   for its operations.
+
+2. The sed General Syntax
+   Syntax :
+   /pattern/action
+   
+   Pattern is a regular expression, and action is one of the commands given in the
+   following table. If pattern is omitted, action is performed for every line as we
+   have seen above.
+   
+   The slash character (/) that surrounds the pattern are required because they
+   are used as delimiters.
+   1. p
+      Prints the line
+   2. d
+      Deletes the line
+   3. s/pattern1/pattern2/
+      Substitutes the first occurrence of pattern1 with pattern2
+      
+3. Deleting All Lines with sed
+   SED is now supposed to use the editing command delete line, denoted by the
+   single letter d
+   Contoh 1 :
+   $ cat /etc/passwd | sed 'd'
+   Contoh 2 : "Tanpa Menggunakan cat Command" 
+   $ sed -e 'd' /etc/passwd
+   
+4. The sed Addresses
+   The sed also supports addresses. Addresses are either particular locations in a
+   file or a range where a particular editing command should be applied. When the
+   sed encounters no addresses, it performs its operations on every line in the
+   file.
+   
+   The following command adds a basic address to the sed command
+   $ cat /etc/passwd | sed '1d' |more
+
+
+5. The sed Address Ranges
+   $ cat /etc/passwd | sed '1, 5d' |more
+   
+   Tabel :
+   1. '4,10d'
+      Lines starting from the 4th till the 10th are deleted
+   2. '10,4d'
+      Only 10th line is deleted, because the sed does not work in reverse direction
+   3. '4,+5d'
+      This matches line 4 in the file, deletes that line, continues to delete the
+      next five lines, and then ceases its deletion and prints the rest
+   4. '2,5!d'
+      This deletes everything except starting from 2nd till 5th line
+   5. '1~3d'
+      This deletes the first line, steps over the next three lines, and then
+      deletes the fourth line. Sed continues to apply this pattern until the end
+      of the file.
+   6. '2~2d'
+      This tells sed to delete the second line, step over the next line, delete
+      the next line, and repeat until the end of the file is reached
+   7. '4,10p'
+      Lines starting from 4th till 10th are printed
+   8. '4,d'
+      This generates the syntax error
+   9. ',10d'
+      This would also generate syntax error
+      
+   Note − While using the p action, you should use the -n option to avoid
+   repetition of line printing.
+   $ cat /etc/passwd | sed -n '1,3p'
+   Check the above command without -n as follows −
+   $ cat /etc/passwd | sed '1,3p'   
+   
+   
+6. The Substitution Command
+   The substitution command, denoted by s, will substitute any string that you
+   specify with any other string that you specify.
+   
+   To substitute one string with another, the sed needs to have the information on
+   where the first string ends and the substitution string begins. For this, we
+   proceed with bookending the two strings with the forward slash (/) character.
+
+   The following command substitutes the first occurrence on a line of the string
+   root with the string vmsementara.
+   
+   $ cat /etc/passwd | sed 's/root/vmsementara/'
+   vmsementara:x:0:0:root user:/root:/bin/sh
+   daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+   ..........................
+   
+   It is very important to note that sed substitutes only the first occurrence on
+   a line. If the string root occurs more than once on a line only the first
+   match will be replaced.
+   
+   For the sed to perform a global substitution, add the letter g to the end of
+   the command as follows −
+   $ cat /etc/passwd | sed 's/root/vmsementara/g'
+   amrood:x:0:0:amrood user:/amrood:/bin/sh
+   daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+   bin:x:2:2:bin:/bin:/bin/sh
+   sys:x:3:3:sys:/dev:/bin/sh
+   ...........................

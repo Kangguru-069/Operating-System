@@ -1,0 +1,115 @@
+Shell Function
+
+Shell functions enable to break down the overall functionality of a script into smaller, logical subsections, which can then be called upon to perform their individual tasks when needed.
+
+Using functions to perform repetitive tasks is an excellent way to create code reuse. This is an important part of modern object-oriented programming principles.
+
+Shell functions are similar to subroutines, procedures, and functions in other programming languages.
+
+1. Creating Functions
+   Syntax :
+   function_name() {
+   	list of commands
+   }
+   
+   Contoh :
+   #!/bin/sh
+   
+   # Define function
+   Hello () {
+   	echo "Hello"
+   }
+   
+   # Invoke Function
+   Hello
+   
+2. Pass Parameters tp a Function
+   Define a function that will accept parameters while calling the function. These
+   parameters would be represented by $1, $2 and so on.
+   
+   Contoh :
+   #!/bin/sh
+   
+   # Define Function
+   Hello () {
+   	echo "Hello Hello $1 $2"
+   }
+   
+   # Invoke Function
+   Hello Himawari Chan
+   
+3. Returning Values from Functions
+   If execute an exit command from inside a function, its effect is not only
+   to terminate execution of the function but also of the shell program that
+   called the function.  
+   
+   If instead want to just terminate execution of the function, then there is
+   way to come out of a defined function. 
+   
+   Based on the situation you can return any value from your function using the
+   return command.
+   
+   Syntax :
+        return code
+        
+   Contoh :
+   #!/bin/sh
+   
+   # Define Function
+   Hello () {
+   	echo "Hello Hello $1 $2"
+   	return 10
+   }
+
+   # Invoke function
+   Hello Masako Chan
+   
+   # Capture value return by last command
+   return=$?
+   
+   echo "Return value is $return"
+   
+4. Nested Function
+   A function that calls itself is known as a recursive function. Recursive
+   function is a more interesting features of functions, cause recursive function
+   can call themselves and also other functions.
+   
+   Contoh :
+   #!/bin/sh
+
+   # Calling one function from another
+   function_one () {
+      echo "This is the first function"
+      function_two
+   }
+
+   function_two () {
+      echo "This is the second function"
+   }
+
+   # Calling function one.
+   number_one
+   
+5. Function Call from Prompt
+   Put definitions for commonly used functions inside a .profile. These
+   definitions will be available whenever you log in and you can use them at the
+   command prompt.
+   Alternatively, you can group the definitions in a file, say file.sh, and then
+   execute the file in the current shell    
+   
+   Contoh :
+      file.sh
+
+   This has the effect of causing functions defined inside file.sh to be read and
+   defined to the current shell 
+   Contoh :
+      $ function_one
+      This is the first function
+      This is the second function 
+   
+   To remove the definition of a function from the shell, use the unset command
+   with the -f option.
+   Syntax :
+      unset -f function_name
+   
+

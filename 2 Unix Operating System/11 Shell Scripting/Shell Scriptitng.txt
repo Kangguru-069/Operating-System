@@ -1,0 +1,48 @@
+Shell Scripting
+
+A shell is a command-line interpreter and typical operations performed by shell scripts include file manipulation, program execution, and printing text.
+
+A. Extended Shell Scripts
+   Shell scripts have several required constructs that tell the shell environment
+   what to do and when to do it. Of course, most scripts are more complex than the
+   above one.
+   
+   The shell is, after all, a real programming language, complete with variables,
+   control structures, and so forth. No matter how complicated a script gets, it is
+   still just a list of commands executed sequentially.
+   
+   The following script uses the read command which takes the input from the
+   keyboard and assigns it as the value of the variable PERSON and finally prints
+   it on STDOUT.
+   Example :
+   #!/bin/sh
+   
+   # Author : Rahul Khan
+   # Ini adalah Comment
+   # Script :
+   
+   echo "Ketikkan Sebuah nama: "
+   read A
+   echo "Hello, $A"
+   
+B. Shell Prompt
+   You can customize your command prompt using the environment variable PS1
+   explained in the Environment tutorial.
+   
+C. Shell Types
+   - Bourne Shell(sh)
+   - C Shell(csh)
+   - Korn Shell(ksh)
+   - Bourne Again Shell(bash)
+   - POSIX Shell(sh)
+   - TENEX/TOPS C Shell(tcsh)
+   
+D. Shell Script
+   Note all the scripts would have the .sh extension. 
+   Before add anything else to script,we need to add shebang. shebang construct
+   function is to alert the system that shell script is being started.
+   Example :
+   #!/bin/bash
+   pwd
+   
+   

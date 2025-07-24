@@ -1,0 +1,28 @@
+Virtualbox Can't Operate In VMX Root Mode
+
+Jenis Error Yang Ditemukan
+
+|| VirtualBox can't operate in VMX root mode.                          ||  
+|| Please disable the KVM kernel extension, recompile your kernel and  ||
+|| reboot.                                                             ||
+|| (VERR_VMX_IN_VMX_ROOT_MODE).                                        ||
+
+
+$ lsmod | grep kvm
+
+Solusi 1 :
+Shut down or Powered Off KVM virtual machines
+$ sudo invoke-rc.d kvm stop
+$ sudo invoke-rc.d qemu-kvm stop
+$ sudo service qemu-kvm stop
+$ sudo reboot
+
+
+Solusi 2 :
+# Jika Processor Yang Dimiliki Intel CPU
+$ sudo modprobe -r kvm_intel
+
+# Jika Processor Yang Dimiliki AMD CPU
+$ sudo modprobe -r kvm_amd
+
+$ sudo reboot

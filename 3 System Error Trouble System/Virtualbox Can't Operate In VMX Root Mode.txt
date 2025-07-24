@@ -26,3 +26,12 @@ $ sudo modprobe -r kvm_intel
 $ sudo modprobe -r kvm_amd
 
 $ sudo reboot
+
+Jika setelah reboot sistem, sistem kembali ERROR  
+maka perlu mendisable kvm extension 
+dengan cara memasukan entry atau create new entry pada /etc/modprobe.d/blacklist.conf:
+
+# disable kvm extension
+blacklist kvm_intel
+
+$ sudo reboot
